@@ -6,8 +6,10 @@
 
 local hooks = require "core.hooks"
 
--- 配置localleader
+-- 全局按键配置 {{{
 vim.g.maplocalleader = ';'
+vim.g.did_load_filetypes = 1
+-- }}}
 
 -- MAPPINGS
 -- To add new plugins, use the "setup_mappings" hook,
@@ -33,6 +35,33 @@ hooks.add("install_plugins", function(use)
     after = "nvim-lspconfig",
     config = function()
       require("custom.plugins.null-ls").setup()
+    end,
+  }
+
+  use {
+    -- 平滑滚动
+    "karb94/neoscroll.nvim",
+    opt = true,
+    config = function()
+      require("neoscroll").setup()
+    end,
+
+    -- lazy loading
+    setup = function()
+      require("core.utils").packer_lazy_load("neoscroll.nvim")
+    end,
+  }
+
+  use {
+    -- 文件类型检测
+    "nathom/filetype.nvim",
+  }
+
+  use {
+    -- 分屏时稳定内容显示
+    "luukvbaal/stabilize.nvim",
+    config = function()
+      require("stabilize").setup()
     end,
   }
 end)
