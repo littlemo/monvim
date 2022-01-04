@@ -24,6 +24,7 @@ hooks.add("setup_mappings", function(map)
   map("n", "<leader>Y", ":let @+=expand(\"%:p\")<CR>:echo '✋ 复制绝对路径完成！'<CR>", { noremap = true, silent = true })
 end)
 
+
 -- NOTE : opt is a variable  there (most likely a table if you want multiple options),
 -- you can remove it if you dont have any custom options
 
@@ -57,6 +58,12 @@ hooks.add("install_plugins", function(use)
   } -- }}}
   use { -- 分屏时稳定内容显示 {{{
     "luukvbaal/stabilize.nvim",
+    config = function()
+      require("stabilize").setup()
+    end,
+  } -- }}}
+  use { -- Markdown预览 {{{
+    "davidgranstrom/nvim-markdown-preview",
     config = function()
       require("stabilize").setup()
     end,
