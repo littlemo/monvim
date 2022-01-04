@@ -18,6 +18,10 @@ hooks.add("setup_mappings", function(map)
   map("n", "<leader>cc", ":Telescope <CR>", opt)
   map("n", "q", ":q <CR>", opt)
   map("v", "<leader>fm", ":lua vim.lsp.buf.range_formatting()<CR>", opt)
+
+  -- 快速复制当前文件路径
+  map("n", "<leader>y", ":let @+=expand(\"%:~:.\")<CR>:echo '✋ 复制相对路径完成！'<CR>", { noremap = true, silent = true })
+  map("n", "<leader>Y", ":let @+=expand(\"%:p\")<CR>:echo '✋ 复制绝对路径完成！'<CR>", { noremap = true, silent = true })
 end)
 
 -- NOTE : opt is a variable  there (most likely a table if you want multiple options),
