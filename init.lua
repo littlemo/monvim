@@ -6,12 +6,16 @@
 
 local hooks = require "core.hooks"
 
+-- 配置localleader
+vim.g.maplocalleader = ';'
+
 -- MAPPINGS
 -- To add new plugins, use the "setup_mappings" hook,
 
 hooks.add("setup_mappings", function(map)
-   map("n", "<leader>cc", ":Telescope <CR>", opt)
-   map("n", "<leader>q", ":q <CR>", opt)
+  map("n", "<leader>cc", ":Telescope <CR>", opt)
+  map("n", "q", ":q <CR>", opt)
+  map("v", "<leader>fm", ":lua vim.lsp.buf.range_formatting()<CR>", opt)
 end)
 
 -- NOTE : opt is a variable  there (most likely a table if you want multiple options),
@@ -23,16 +27,14 @@ end)
 -- examples below:
 
 hooks.add("install_plugins", function(use)
-   use {
-      -- 快速推出插入模式
-      "max397574/better-escape.nvim",
-      event = "InsertEnter",
-   }
-
-   use {
-      "user or orgname/reponame",
-      --further packer options
-   }
+  use {
+    -- 代码语法检查&格式化
+    "jose-elias-alvarez/null-ls.nvim",
+    after = "nvim-lspconfig",
+    config = function()
+      require("custom.plugins.null-ls").setup()
+    end,
+  }
 end)
 
 -- NOTE: we heavily suggest using Packer's lazy loading (with the 'event' field)
