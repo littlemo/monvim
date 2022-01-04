@@ -33,17 +33,14 @@ end)
 -- examples below:
 
 hooks.add("install_plugins", function(use)
-  use {
-    -- 代码语法检查&格式化
+  use { -- 代码语法检查&格式化 {{{
     "jose-elias-alvarez/null-ls.nvim",
     after = "nvim-lspconfig",
     config = function()
       require("custom.plugins.null-ls").setup()
     end,
-  }
-
-  use {
-    -- 平滑滚动
+  } -- }}}
+  use { -- 平滑滚动 {{{
     "karb94/neoscroll.nvim",
     opt = true,
     config = function()
@@ -54,22 +51,20 @@ hooks.add("install_plugins", function(use)
     setup = function()
       require("core.utils").packer_lazy_load("neoscroll.nvim")
     end,
-  }
-
-  use {
-    -- 文件类型检测
+  } -- }}}
+  use { -- 文件类型检测 {{{
     "nathom/filetype.nvim",
-  }
-
-  use {
-    -- 分屏时稳定内容显示
+  } -- }}}
+  use { -- 分屏时稳定内容显示 {{{
     "luukvbaal/stabilize.nvim",
     config = function()
       require("stabilize").setup()
     end,
-  }
+  } -- }}}
 end)
 
 -- NOTE: we heavily suggest using Packer's lazy loading (with the 'event' field)
 -- see: https://github.com/wbthomason/packer.nvim
 -- https://nvchad.github.io/config/walkthrough
+
+-- vim: set foldmethod=marker ts=2 sw=2 tw=80 noet :
