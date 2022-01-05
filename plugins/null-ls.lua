@@ -21,8 +21,9 @@ local sources = {
   b.formatting.yapf,
   b.diagnostics.flake8,
 
-  -- json
+  -- misc
   b.formatting.json_tool,
+  b.code_actions.gitsigns,
 }
 
 local M = {}
