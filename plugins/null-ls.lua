@@ -8,8 +8,8 @@ local sources = {
   -- b.formatting.deno_fmt,
 
   -- Lua
-  b.formatting.stylua,
-  b.diagnostics.luacheck,
+  -- b.formatting.stylua,
+  b.diagnostics.luacheck.with { extra_args = { "--globals vim" } },
 
   -- Shell
   -- b.formatting.shfmt,
