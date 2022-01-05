@@ -27,6 +27,9 @@ hooks.add("setup_mappings", function(map)
   -- 快速复制当前文件路径
   map("n", "<leader>y", ":let @+=expand(\"%:~:.\")<CR>:echo '✋ 复制相对路径完成！'<CR>", { noremap = true, silent = true })
   map("n", "<leader>Y", ":let @+=expand(\"%:p\")<CR>:echo '✋ 复制绝对路径完成！'<CR>", { noremap = true, silent = true })
+
+	-- 功能开关
+	map("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", { noremap = true, silent = true })
 end)
 
 
