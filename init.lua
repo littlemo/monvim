@@ -52,6 +52,7 @@ end)
 -- examples below:
 
 hooks.add("install_plugins", function(use)
+	-- LSP {{{
   use { -- 代码语法检查&格式化 {{{
     "jose-elias-alvarez/null-ls.nvim",
     after = "nvim-lspconfig",
@@ -59,6 +60,8 @@ hooks.add("install_plugins", function(use)
       require("custom.plugins.null-ls").setup()
     end,
   } -- }}}
+		-- }}}
+	-- 滚屏 {{{
   use { -- 平滑滚动 {{{
     "karb94/neoscroll.nvim",
     opt = true,
@@ -71,27 +74,36 @@ hooks.add("install_plugins", function(use)
       require("core.utils").packer_lazy_load("neoscroll.nvim")
     end,
   } -- }}}
+		-- }}}
+	-- misc {{{
   use { -- 文件类型检测 {{{
     "nathom/filetype.nvim",
   } -- }}}
+		-- }}}
+	-- 分屏&窗口 {{{
   use { -- 分屏时稳定内容显示 {{{
     "luukvbaal/stabilize.nvim",
     config = function()
       require("stabilize").setup()
     end,
   } -- }}}
-  use { -- Markdown预览 {{{
+		-- }}}
+	-- Markdown {{{
+  use { -- 动态预览 {{{
     "davidgranstrom/nvim-markdown-preview",
     config = function()
       require("stabilize").setup()
     end,
   } -- }}}
+		-- }}}
+	-- Git {{{
 	use { -- Git封装 {{{
 		"tpope/vim-fugitive",
 		setup = function()
 			require("core.utils").packer_lazy_load("vim-fugitive")
-		end
+		end,
 	} -- }}}
+		-- }}}
 	-- 编辑支持 {{{
 	use { -- 在上次编辑的位置打开文件 {{{
 		'ethanholz/nvim-lastplace',
