@@ -20,21 +20,25 @@ vim.g.neovide_cursor_vfx_mode = "railgun"
 -- To add new plugins, use the "setup_mappings" hook,
 
 hooks.add("setup_mappings", function(map)
+	local opt = { noremap = true, silent = true }
+	-- 功能开关 {{{
+	map("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", opt)
+	-- }}}
+	-- 插件映射 {{{
   map("n", "<leader>cc", ":Telescope <CR>", opt)
-  map("n", "q", ":q <CR>", opt)
   map("v", "<leader>fm", ":lua vim.lsp.buf.range_formatting()<CR>", opt)
-
-  -- 快速复制当前文件路径
-  map("n", "<leader>y", ":let @+=expand(\"%:~:.\")<CR>:echo '✋ 复制相对路径完成！'<CR>", { noremap = true, silent = true })
-  map("n", "<leader>Y", ":let @+=expand(\"%:p\")<CR>:echo '✋ 复制绝对路径完成！'<CR>", { noremap = true, silent = true })
-
-	-- 功能开关
-	map("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", { noremap = true, silent = true })
-
-	-- 功能增强
+  map("n", "<leader>gb", ":git blame<CR>", opt)
+	-- }}}
+	-- 功能增强 {{{
+  map("n", "q", ":q <CR>", opt)
 	-- 代码块缩进 {{{
-	map("x", "<", "<gv", { noremap = true, silent = true })
-	map("x", ">", ">gv", { noremap = true, silent = true })
+	map("x", "<", "<gv", opt)
+	map("x", ">", ">gv", opt)
+	-- }}}
+  -- 快速复制当前文件路径 {{{
+  map("n", "<leader>y", ":let @+=expand(\"%:~:.\")<CR>:echo '✋ 复制相对路径完成！'<CR>", opt)
+  map("n", "<leader>Y", ":let @+=expand(\"%:p\")<CR>:echo '✋ 复制绝对路径完成！'<CR>", opt)
+	-- }}}
 	-- }}}
 end)
 
