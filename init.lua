@@ -27,7 +27,7 @@ hooks.add("setup_mappings", function(map)
 	-- 插件映射 {{{
   map("n", "<leader>cc", ":Telescope <CR>", opt)
   map("v", "<leader>fm", ":lua vim.lsp.buf.range_formatting()<CR>", opt)
-  map("n", "<leader>gb", ":git blame<CR>", opt)
+  map("n", "<leader>gb", ":Git blame<CR>", opt)
 	-- }}}
 	-- 功能增强 {{{
   map("n", "q", ":q <CR>", opt)
