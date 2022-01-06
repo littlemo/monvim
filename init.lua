@@ -82,6 +82,12 @@ hooks.add("install_plugins", function(use)
       require("stabilize").setup()
     end,
   } -- }}}
+	use { -- Git封装 {{{
+		"tpope/vim-fugitive",
+		setup = function()
+			require("core.utils").packer_lazy_load("vim-fugitive")
+		end
+	} -- }}}
 end)
 
 -- NOTE: we heavily suggest using Packer's lazy loading (with the 'event' field)
