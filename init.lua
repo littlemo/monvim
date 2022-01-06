@@ -92,6 +92,18 @@ hooks.add("install_plugins", function(use)
 			require("core.utils").packer_lazy_load("vim-fugitive")
 		end
 	} -- }}}
+	-- 编辑支持 {{{
+	use { -- 在上次编辑的位置打开文件 {{{
+		'ethanholz/nvim-lastplace',
+		config = function()
+			require'nvim-lastplace'.setup {
+				lastplace_ignore_buftype = {"quickfix", "nofile", "help"},
+				lastplace_ignore_filetype = {"gitcommit", "gitrebase", "svn", "hgcommit"},
+				lastplace_open_folds = true
+			}
+		end,
+	} -- }}}
+		-- }}}
 end)
 
 -- NOTE: we heavily suggest using Packer's lazy loading (with the 'event' field)
