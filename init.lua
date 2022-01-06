@@ -30,6 +30,12 @@ hooks.add("setup_mappings", function(map)
 
 	-- 功能开关
 	map("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", { noremap = true, silent = true })
+
+	-- 功能增强
+	-- 代码块缩进 {{{
+	map("x", "<", "<gv", { noremap = true, silent = true })
+	map("x", ">", ">gv", { noremap = true, silent = true })
+	-- }}}
 end)
 
 
