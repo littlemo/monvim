@@ -108,6 +108,7 @@ hooks.add("install_plugins", function(use)
   -- Git {{{
   use { -- vim-fugitive {{{
     "tpope/vim-fugitive",
+    event = "BufRead",
     setup = function()
       require("core.utils").packer_lazy_load("vim-fugitive")
     end,
@@ -165,6 +166,7 @@ hooks.add("install_plugins", function(use)
   use { -- vim-asterisk {{{
     'haya14busa/vim-asterisk',
     after = "nvim-hlslens",
+    event = "BufRead",
     setup = function()
       require("core.utils").packer_lazy_load("vim-asterisk")
     end,
