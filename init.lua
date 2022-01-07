@@ -101,7 +101,7 @@ hooks.add("install_plugins", function(use)
     -- 动态预览
     "davidgranstrom/nvim-markdown-preview",
     config = function()
-      require("stabilize").setup()
+      require("core.utils").packer_lazy_load("nvim-markdown-preview")
     end,
   } -- }}}
     -- }}}
