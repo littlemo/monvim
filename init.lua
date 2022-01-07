@@ -100,7 +100,7 @@ hooks.add("install_plugins", function(use)
   use { -- nvim-markdown-preview {{{
     -- 动态预览
     "davidgranstrom/nvim-markdown-preview",
-    config = function()
+    setup = function()
       require("core.utils").packer_lazy_load("nvim-markdown-preview")
     end,
   } -- }}}
@@ -130,6 +130,7 @@ hooks.add("install_plugins", function(use)
   -- 搜索 {{{
   use { -- nvim-hlslens {{{
     'kevinhwang91/nvim-hlslens',
+    event = "BufRead",
     config = function()
       require('hlslens').setup({
         -- 定制虚拟文字显示信息
