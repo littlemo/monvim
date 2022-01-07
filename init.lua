@@ -20,26 +20,30 @@ vim.g.neovide_cursor_vfx_mode = "railgun"
 -- To add new plugins, use the "setup_mappings" hook,
 
 hooks.add("setup_mappings", function(map)
-	local opt = { noremap = true, silent = true }
-	-- 功能开关 {{{
-	map("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", opt)
-	-- }}}
-	-- 插件映射 {{{
+  local opt = { noremap = true, silent = true }
+  -- 功能开关 {{{
+  map("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", opt)
+  -- }}}
+  -- 插件映射 {{{
   map("n", "<leader>cc", ":Telescope <CR>", opt)
   map("v", "<leader>fm", ":lua vim.lsp.buf.range_formatting()<CR>", opt)
   map("n", "<leader>gb", ":Git blame<CR>", opt)
-	-- }}}
-	-- 功能增强 {{{
+  vim.cmd("map *  <Plug>(asterisk-z*)<Cmd>lua require('hlslens').start()<CR>")
+  vim.cmd("map #  <Plug>(asterisk-z#)<Cmd>lua require('hlslens').start()<CR>")
+  vim.cmd("map g* <Plug>(asterisk-gz*)<Cmd>lua require('hlslens').start()<CR>")
+  vim.cmd("map g# <Plug>(asterisk-gz#)<Cmd>lua require('hlslens').start()<CR>")
+  -- }}}
+  -- 功能增强 {{{
   map("n", "q", ":q <CR>", opt)
-	-- 代码块缩进 {{{
-	map("x", "<", "<gv", opt)
-	map("x", ">", ">gv", opt)
-	-- }}}
+  -- 代码块缩进 {{{
+  map("x", "<", "<gv", opt)
+  map("x", ">", ">gv", opt)
+  -- }}}
   -- 快速复制当前文件路径 {{{
   map("n", "<leader>y", ":let @+=expand(\"%:~:.\")<CR>:echo '✋ 复制相对路径完成！'<CR>", opt)
   map("n", "<leader>Y", ":let @+=expand(\"%:p\")<CR>:echo '✋ 复制绝对路径完成！'<CR>", opt)
-	-- }}}
-	-- }}}
+  -- }}}
+  -- }}}
 end)
 
 
@@ -52,17 +56,19 @@ end)
 -- examples below:
 
 hooks.add("install_plugins", function(use)
-	-- LSP {{{
-  use { -- 代码语法检查&格式化 {{{
+  -- LSP {{{
+  use { -- null-ls.nvim {{{
+    -- 代码语法检查&格式化
     "jose-elias-alvarez/null-ls.nvim",
     after = "nvim-lspconfig",
     config = function()
       require("custom.plugins.null-ls").setup()
     end,
   } -- }}}
-		-- }}}
-	-- 滚屏 {{{
-  use { -- 平滑滚动 {{{
+    -- }}}
+  -- 滚屏 {{{
+  use { -- neoscroll.nvim {{{
+    -- 平滑滚动
     "karb94/neoscroll.nvim",
     opt = true,
     config = function()
@@ -74,52 +80,100 @@ hooks.add("install_plugins", function(use)
       require("core.utils").packer_lazy_load("neoscroll.nvim")
     end,
   } -- }}}
-		-- }}}
-	-- misc {{{
-  use { -- 文件类型检测 {{{
+    -- }}}
+  -- misc {{{
+  use { -- filetype.nvim {{{
+    -- 文件类型检测
     "nathom/filetype.nvim",
   } -- }}}
-		-- }}}
-	-- 分屏&窗口 {{{
-  use { -- 分屏时稳定内容显示 {{{
+    -- }}}
+  -- 分屏&窗口 {{{
+  use { -- stabilize.nvim {{{
+    -- 分屏时稳定内容显示
     "luukvbaal/stabilize.nvim",
     config = function()
       require("stabilize").setup()
     end,
   } -- }}}
-		-- }}}
-	-- Markdown {{{
-  use { -- 动态预览 {{{
+    -- }}}
+  -- Markdown {{{
+  use { -- nvim-markdown-preview {{{
+    -- 动态预览
     "davidgranstrom/nvim-markdown-preview",
     config = function()
       require("stabilize").setup()
     end,
   } -- }}}
-		-- }}}
-	-- Git {{{
-	use { -- Git封装 {{{
-		"tpope/vim-fugitive",
-		setup = function()
-			require("core.utils").packer_lazy_load("vim-fugitive")
-		end,
-	} -- }}}
-		-- }}}
-	-- 编辑支持 {{{
-	use { -- 在上次编辑的位置打开文件 {{{
-		'ethanholz/nvim-lastplace',
-		config = function()
-			require'nvim-lastplace'.setup {
-				lastplace_ignore_buftype = {"quickfix", "nofile", "help"},
-				lastplace_ignore_filetype = {"gitcommit", "gitrebase", "svn", "hgcommit"},
-				lastplace_open_folds = true
-			}
-		end,
-	} -- }}}
-		-- }}}
+    -- }}}
+  -- Git {{{
+  use { -- vim-fugitive {{{
+    "tpope/vim-fugitive",
+    setup = function()
+      require("core.utils").packer_lazy_load("vim-fugitive")
+    end,
+  } -- }}}
+    -- }}}
+  -- 编辑支持 {{{
+  use { -- nvim-lastplace {{{
+    -- 在上次编辑的位置打开文件
+    'ethanholz/nvim-lastplace',
+    config = function()
+      require'nvim-lastplace'.setup {
+        lastplace_ignore_buftype = {"quickfix", "nofile", "help"},
+        lastplace_ignore_filetype = {"gitcommit", "gitrebase", "svn", "hgcommit"},
+        lastplace_open_folds = true
+      }
+    end,
+  } -- }}}
+    -- }}}
+  -- 搜索 {{{
+  use { -- nvim-hlslens {{{
+    'kevinhwang91/nvim-hlslens',
+    config = function()
+      require('hlslens').setup({
+        -- 定制虚拟文字显示信息
+        override_lens = function(render, plist, nearest, idx, r_idx)
+          local sfw = vim.v.searchforward == 1
+          local indicator, text, chunks
+          local abs_r_idx = math.abs(r_idx)
+          if abs_r_idx > 1 then
+            indicator = ('%d%s'):format(abs_r_idx, sfw ~= (r_idx > 1) and '▲' or '▼')
+          elseif abs_r_idx == 1 then
+            indicator = sfw ~= (r_idx == 1) and '▲' or '▼'
+          else
+            indicator = ''
+          end
+
+          local lnum, col = unpack(plist[idx])
+          if nearest then
+            local cnt = #plist
+            if indicator ~= '' then
+              text = ('[%s %d/%d]'):format(indicator, idx, cnt)
+            else
+              text = ('[%d/%d]'):format(idx, cnt)
+            end
+            chunks = {{' ', 'Ignore'}, {text, 'HlSearchLensNear'}}
+          else
+            text = ('[%s %d]'):format(indicator, idx)
+            chunks = {{' ', 'Ignore'}, {text, 'HlSearchLens'}}
+          end
+          render.set_virt(0, lnum - 1, col - 1, chunks, nearest)
+        end
+      })
+    end
+  } -- }}}
+  use { -- vim-asterisk {{{
+    'haya14busa/vim-asterisk',
+    after = "nvim-hlslens",
+    setup = function()
+      require("core.utils").packer_lazy_load("vim-asterisk")
+    end,
+  } -- }}}
+    -- }}}
 end)
 
 -- NOTE: we heavily suggest using Packer's lazy loading (with the 'event' field)
 -- see: https://github.com/wbthomason/packer.nvim
 -- https://nvchad.github.io/config/walkthrough
 
--- vim: set foldmethod=marker ts=2 sw=2 tw=80 noet :
+-- vim: set foldmethod=marker ts=2 sw=2 tw=80 et :
