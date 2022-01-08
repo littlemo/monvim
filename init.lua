@@ -127,6 +127,15 @@ hooks.add("install_plugins", function(use)
     end,
   } -- }}}
     -- }}}
+  -- 光标线 {{{
+  use { -- nvim-cursorword {{{
+    "xiyaowong/nvim-cursorword",
+    event = "BufRead",
+    setup = function()
+      require("core.utils").packer_lazy_load("nvim-cursorword")
+    end
+  } -- }}}
+    -- }}}
   -- 搜索 {{{
   use { -- nvim-hlslens {{{
     'kevinhwang91/nvim-hlslens',
