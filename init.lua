@@ -30,6 +30,12 @@ hooks.add("setup_mappings", function(map)
   map("x", "<", "<gv", opt)
   map("x", ">", ">gv", opt)
   -- }}}
+  -- 窗口尺寸 {{{
+  map("", "<A-h>", "<C-w><", opt)
+  map("", "<A-j>", "<C-w>-", opt)
+  map("", "<A-k>", "<C-w>+", opt)
+  map("", "<A-l>", "<C-w>>", opt)
+  -- }}}
   -- 快速复制当前文件路径 {{{
   map("n", "<leader>y", ":let @+=expand(\"%:~:.\")<CR>:echo '✋ 复制相对路径完成！'<CR>", opt)
   map("n", "<leader>Y", ":let @+=expand(\"%:p\")<CR>:echo '✋ 复制绝对路径完成！'<CR>", opt)
