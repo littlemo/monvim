@@ -14,6 +14,9 @@ vim.g.did_load_filetypes = 1
 vim.o.guifont = 'Hack Nerd Font Mono'
 vim.g.neovide_fullscreen = true
 vim.g.neovide_cursor_vfx_mode = "railgun"
+
+-- vimspector 配置
+vim.g.vimspector_enable_mappings = 'HUMAN'
 -- }}}
 
 -- MAPPINGS
@@ -39,10 +42,21 @@ hooks.add("setup_mappings", function(map)
   map("n", "<leader>cc", ":Telescope <CR>", opt)
   map("v", "<leader>fm", ":lua vim.lsp.buf.range_formatting()<CR>", opt)
   map("n", "<leader>gb", ":Git blame<CR>", opt)
+
   vim.cmd("map *  <Plug>(asterisk-z*)<Cmd>lua require('hlslens').start()<CR>")
   vim.cmd("map #  <Plug>(asterisk-z#)<Cmd>lua require('hlslens').start()<CR>")
   vim.cmd("map g* <Plug>(asterisk-gz*)<Cmd>lua require('hlslens').start()<CR>")
   vim.cmd("map g# <Plug>(asterisk-gz#)<Cmd>lua require('hlslens').start()<CR>")
+
+  -- 代码调试
+  vim.cmd("nmap <leader>di <Plug>VimspectorBalloonEval")  -- for normal mode - the word under the cursor
+  vim.cmd("xmap <leader>di <Plug>VimspectorBalloonEval")  -- for visual mode, the visually selected text
+  vim.cmd("nmap <leader>dn <Plug>VimspectorStepOver")
+  vim.cmd("nmap <leader>ds <Plug>VimspectorStepInto")
+  vim.cmd("nmap <leader>dr <Plug>VimspectorStepOut")
+  vim.cmd("nmap <leader>dt <Plug>VimspectorRunToCursor")
+  vim.cmd("nmap <leader>db <Plug>VimspectorToggleBreakpoint")
+  vim.cmd("nmap <leader>dq :VimspectorReset<CR>")
   -- }}}
 end)
 
@@ -63,6 +77,15 @@ hooks.add("install_plugins", function(use)
     after = "nvim-lspconfig",
     config = function()
       require("custom.plugins.null-ls").setup()
+    end,
+  } -- }}}
+    -- }}}
+  -- 代码调试 {{{
+  use { -- vimspector {{{
+    "puremourning/vimspector",
+    event = "BufRead",
+    setup = function()
+      require("core.utils").packer_lazy_load("vimspector")
     end,
   } -- }}}
     -- }}}
