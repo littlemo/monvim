@@ -49,22 +49,6 @@ hooks.add("setup_mappings", function(map)
   -- 插件映射 {{{
   map("n", "<leader>cc", ":Telescope <CR>", opt)
   map("v", "<leader>fm", ":lua vim.lsp.buf.range_formatting()<CR>", opt)
-  map("n", "<leader>gb", ":Git blame<CR>", opt)
-
-  vim.cmd("map *  <Plug>(asterisk-z*)<Cmd>lua require('hlslens').start()<CR>")
-  vim.cmd("map #  <Plug>(asterisk-z#)<Cmd>lua require('hlslens').start()<CR>")
-  vim.cmd("map g* <Plug>(asterisk-gz*)<Cmd>lua require('hlslens').start()<CR>")
-  vim.cmd("map g# <Plug>(asterisk-gz#)<Cmd>lua require('hlslens').start()<CR>")
-
-  -- 代码调试
-  vim.cmd("nmap <leader>di <Plug>VimspectorBalloonEval")  -- for normal mode - the word under the cursor
-  vim.cmd("xmap <leader>di <Plug>VimspectorBalloonEval")  -- for visual mode, the visually selected text
-  vim.cmd("nmap <leader>dn <Plug>VimspectorStepOver")
-  vim.cmd("nmap <leader>ds <Plug>VimspectorStepInto")
-  vim.cmd("nmap <leader>dr <Plug>VimspectorStepOut")
-  vim.cmd("nmap <leader>dt <Plug>VimspectorRunToCursor")
-  vim.cmd("nmap <leader>db <Plug>VimspectorToggleBreakpoint")
-  vim.cmd("nmap <leader>dq :VimspectorReset<CR>")
   -- }}}
 end)
 
@@ -92,6 +76,16 @@ hooks.add("install_plugins", function(use)
   use { -- vimspector {{{
     "puremourning/vimspector",
     event = "BufRead",
+    config = function()
+      vim.api.nvim_set_keymap('n', '<leader>di', '<Plug>VimspectorBalloonEval', {})
+      vim.api.nvim_set_keymap('x', '<leader>di', '<Plug>VimspectorBalloonEval', {})
+      vim.api.nvim_set_keymap('n', '<leader>dn', '<Plug>VimspectorStepOver', {})
+      vim.api.nvim_set_keymap('n', '<leader>ds', '<Plug>VimspectorStepInto', {})
+      vim.api.nvim_set_keymap('n', '<leader>dr', '<Plug>VimspectorStepOut', {})
+      vim.api.nvim_set_keymap('n', '<leader>dt', '<Plug>VimspectorRunToCursor', {})
+      vim.api.nvim_set_keymap('n', '<leader>db', '<Plug>VimspectorToggleBreakpoint', {})
+      vim.api.nvim_set_keymap('n', '<leader>dq', ':VimspectorReset<CR>', {})
+    end,
     setup = function()
       require("core.utils").packer_lazy_load("vimspector")
     end,
@@ -140,6 +134,9 @@ hooks.add("install_plugins", function(use)
   use { -- vim-fugitive {{{
     "tpope/vim-fugitive",
     event = "BufRead",
+    config = function()
+      vim.api.nvim_set_keymap("n", "<leader>gb", ":Git blame<CR>", {noremap = true, silent = true})
+    end,
     setup = function()
       require("core.utils").packer_lazy_load("vim-fugitive")
     end,
@@ -208,6 +205,12 @@ hooks.add("install_plugins", function(use)
     'haya14busa/vim-asterisk',
     after = "nvim-hlslens",
     event = "BufRead",
+    config = function()
+      vim.api.nvim_set_keymap('', '*', "<Plug>(asterisk-z*)<Cmd>lua require('hlslens').start()<CR>", {})
+      vim.api.nvim_set_keymap('', '#', "<Plug>(asterisk-z#)<Cmd>lua require('hlslens').start()<CR>", {})
+      vim.api.nvim_set_keymap('', 'g*', "<Plug>(asterisk-gz*)<Cmd>lua require('hlslens').start()<CR>", {})
+      vim.api.nvim_set_keymap('', 'g#', "<Plug>(asterisk-gz#)<Cmd>lua require('hlslens').start()<CR>", {})
+    end,
     setup = function()
       require("core.utils").packer_lazy_load("vim-asterisk")
     end,
