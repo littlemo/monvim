@@ -76,6 +76,7 @@ hooks.add("install_plugins", function(use)
   use { -- vimspector {{{
     "puremourning/vimspector",
     event = "BufRead",
+    run = "./install_gadget.py --enable-python",
     config = function()
       vim.api.nvim_set_keymap('n', '<leader>di', '<Plug>VimspectorBalloonEval', {})
       vim.api.nvim_set_keymap('x', '<leader>di', '<Plug>VimspectorBalloonEval', {})
