@@ -91,6 +91,23 @@ hooks.add("install_plugins", function(use)
       require("core.utils").packer_lazy_load("vimspector")
     end,
   } -- }}}
+  use { -- sniprun {{{
+    'michaelb/sniprun',
+    event = "BufRead",
+    run = 'bash ./install.sh',
+    config = function()
+      require("sniprun").setup({
+        repl_enable = {'Python3_original'}
+      })
+      vim.api.nvim_set_keymap('n', '<C-c>', '<Plug>SnipRunOperator', {silent = true})
+      vim.api.nvim_set_keymap('v', '<C-c><C-e>', '<Plug>SnipRun', {silent = true})  -- 意为 command execute
+      vim.api.nvim_set_keymap('n', '<C-c><C-e>', '<Plug>SnipRun', {silent = true})
+      vim.api.nvim_set_keymap('i', '<C-c><C-e>', '<ESC>:SnipRun<CR>A', {silent = true})
+    end,
+    setup = function()
+      require("core.utils").packer_lazy_load("sniprun")
+    end,
+  } -- }}}
     -- }}}
   -- 滚屏 {{{
   use { -- neoscroll.nvim {{{
