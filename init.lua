@@ -12,7 +12,7 @@ vim.g.did_load_filetypes = 1
 
 -- neovide 配置
 vim.o.guifont = 'Hack Nerd Font Mono'
-vim.g.neovide_fullscreen = true
+-- vim.g.neovide_fullscreen = true
 vim.g.neovide_cursor_vfx_mode = "railgun"
 
 -- vimspector 配置
