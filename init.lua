@@ -26,6 +26,8 @@ hooks.add("setup_mappings", function(map)
   local opt = { noremap = true, silent = true }
   -- 功能增强 {{{
   map("n", "q", ":q <CR>", opt)
+  map("n", "Q", "q", opt)
+  map("n", "gQ", "@q", opt)
   -- 代码块缩进 {{{
   map("x", "<", "<gv", opt)
   map("x", ">", ">gv", opt)
