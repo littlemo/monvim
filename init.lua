@@ -19,7 +19,7 @@ vim.g.neovide_cursor_vfx_mode = "railgun"
 vim.g.vimspector_enable_mappings = 'HUMAN'
 
 -- json 格式化
-vim.cmd('com! FormatJSON %!python3 -c "import json, sys, collections; print(json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=4))"')
+vim.cmd [[ com! FormatJSON %!python3 -c "import json, sys, collections; print(json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=4))" ]]
 -- }}}
 
 -- MAPPINGS
