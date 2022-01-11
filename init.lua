@@ -147,6 +147,15 @@ hooks.add("install_plugins", function(use)
       require("core.utils").packer_lazy_load("nvim-markdown-preview")
     end,
   }
+-- 语法
+  use { -- surround
+    "blackCauldron7/surround.nvim",
+    config = function()
+      require"surround".setup({
+        mappings_style = "sandwich"
+      })
+    end,
+  }
 -- Git
   use { -- vim-fugitive
     "tpope/vim-fugitive",
