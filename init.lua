@@ -132,8 +132,8 @@ hooks.add("install_plugins", function(use)
     -- 文件类型检测
     "nathom/filetype.nvim",
     config = function()
-      vim.cmd [[ autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 ]]
-      vim.cmd [[ autocmd Filetype markdown setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 ]]
+      vim.cmd [[ autocmd Filetype python setlocal foldmethod=indent expandtab tabstop=4 shiftwidth=4 softtabstop=4 ]]
+      vim.cmd [[ autocmd Filetype markdown setlocal foldmethod=indent noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 ]]
     end,
   } -- }}}
     -- }}}
