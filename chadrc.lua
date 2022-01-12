@@ -21,6 +21,9 @@ M.plugins = {
       setup_lspconf = "custom.plugins.lspconfig"
     },
   },
+  default_plugin_config_replace = {
+    nvim_tree = "custom.plugins.nvimtree",
+  },
 }
 -- }}}
 -- 按键映射 {{{
