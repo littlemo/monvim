@@ -113,6 +113,10 @@ customPlugins.add(function(use)
       vim.cmd [[ autocmd Filetype json setlocal foldmethod=indent expandtab tabstop=4 shiftwidth=4 softtabstop=4 ]]
     end,
   }
+  use { -- vim-startuptime
+    "dstein64/vim-startuptime",
+    cmd = "StartupTime",
+  }
   -- 分屏&窗口
   use { -- stabilize.nvim
     -- 分屏时稳定内容显示
