@@ -125,6 +125,7 @@ customPlugins.add(function(use)
   use { -- nvim-markdown-preview
     -- 动态预览
     "davidgranstrom/nvim-markdown-preview",
+    cmd = "MarkdownPreview",
     setup = function()
       require("core.utils").packer_lazy_load("nvim-markdown-preview")
     end,
@@ -141,7 +142,7 @@ customPlugins.add(function(use)
   -- Git
   use { -- vim-fugitive
     "tpope/vim-fugitive",
-    event = "BufRead",
+    cmd = "Git",
     config = function()
       vim.api.nvim_set_keymap("n", "<leader>gb", ":Git blame<CR>", {noremap = true, silent = true})
     end,
