@@ -7,9 +7,6 @@ vim.o.guifont = 'Hack Nerd Font Mono'
 -- vim.g.neovide_fullscreen = true
 vim.g.neovide_cursor_vfx_mode = "railgun"
 
--- vimspector 配置
-vim.g.vimspector_enable_mappings = 'HUMAN'
-
 -- json 格式化
 vim.cmd [[ com! FormatJSON %!python3 -c "import json, sys, collections; print(json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=4))" ]]
 
@@ -57,7 +54,7 @@ customPlugins.add(function(use)
   -- 代码调试
   use { -- vimspector
     "puremourning/vimspector",
-    event = "BufRead",
+    cmd = "VimspectorReset",
     run = "./install_gadget.py --enable-python",
     config = function()
       vim.api.nvim_set_keymap('n', '<leader>di', '<Plug>VimspectorBalloonEval', {})
@@ -70,6 +67,7 @@ customPlugins.add(function(use)
       vim.api.nvim_set_keymap('n', '<leader>dq', ':VimspectorReset<CR>', {})
     end,
     setup = function()
+      vim.g.vimspector_enable_mappings = 'HUMAN'
       require("core.utils").packer_lazy_load("vimspector")
     end,
   }
