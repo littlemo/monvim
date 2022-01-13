@@ -1,11 +1,3 @@
--- This is an example init file , its supposed to be placed in /lua/custom dir
--- lua/custom/init.lua
-
--- This is where your custom modules and plugins go.
--- Please check NvChad docs if you're totally new to nvchad + dont know lua!!
-
-local hooks = require "core.hooks"
-
 -- 全局按键配置
 vim.g.maplocalleader = ';'
 vim.g.did_load_filetypes = 1
@@ -22,47 +14,37 @@ vim.g.vimspector_enable_mappings = 'HUMAN'
 vim.cmd [[ com! FormatJSON %!python3 -c "import json, sys, collections; print(json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=4))" ]]
 
 -- MAPPINGS
--- To add new plugins, use the "setup_mappings" hook,
+local map = require("core.utils").map
+local opt = { noremap = true, silent = true }
 
-hooks.add("setup_mappings", function(map)
-  local opt = { noremap = true, silent = true }
+-- 功能增强
+map("n", "q", ":q <CR>", opt)
+map("n", "Q", "q", opt)
+map("n", "gQ", "@q", opt)
+-- 代码块缩进
+map("x", "<", "<gv", opt)
+map("x", ">", ">gv", opt)
 
-  -- 功能增强
-  map("n", "q", ":q <CR>", opt)
-  map("n", "Q", "q", opt)
-  map("n", "gQ", "@q", opt)
-  -- 代码块缩进
-  map("x", "<", "<gv", opt)
-  map("x", ">", ">gv", opt)
- 
-  -- 窗口尺寸
-  map("", "<A-h>", "<C-w><", opt)
-  map("", "<A-j>", "<C-w>-", opt)
-  map("", "<A-k>", "<C-w>+", opt)
-  map("", "<A-l>", "<C-w>>", opt)
- 
-  -- 快速复制当前文件路径
-  map("n", "<leader>y", ":let @+=expand(\"%:~:.\")<CR>:echo '✋ 复制相对路径完成！'<CR>", opt)
-  map("n", "<leader>Y", ":let @+=expand(\"%:p\")<CR>:echo '✋ 复制绝对路径完成！'<CR>", opt)
- 
-  -- 功能开关
-  map("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", opt)
- 
-  -- 插件映射
-  map("n", "<leader>cc", ":Telescope <CR>", opt)
-  map("v", "<leader>fm", ":lua vim.lsp.buf.range_formatting()<CR>", opt)
-end)
+-- 窗口尺寸
+map("", "<A-h>", "<C-w><", opt)
+map("", "<A-j>", "<C-w>-", opt)
+map("", "<A-k>", "<C-w>+", opt)
+map("", "<A-l>", "<C-w>>", opt)
 
+-- 快速复制当前文件路径
+map("n", "<leader>y", ":let @+=expand(\"%:~:.\")<CR>:echo '✋ 复制相对路径完成！'<CR>", opt)
+map("n", "<leader>Y", ":let @+=expand(\"%:p\")<CR>:echo '✋ 复制绝对路径完成！'<CR>", opt)
 
--- NOTE : opt is a variable  there (most likely a table if you want multiple options),
--- you can remove it if you dont have any custom options
+-- 功能开关
+map("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", opt)
+
+-- 插件映射
+map("n", "<leader>cc", ":Telescope <CR>", opt)
+map("v", "<leader>fm", ":lua vim.lsp.buf.range_formatting()<CR>", opt)
 
 -- Install plugins
--- To add new plugins, use the "install_plugins" hook,
-
--- examples below:
-
-hooks.add("install_plugins", function(use)
+local customPlugins = require "core.customPlugins"
+customPlugins.add(function(use)
   -- LSP
   use { -- null-ls.nvim
     -- 代码语法检查&格式化
@@ -242,6 +224,6 @@ hooks.add("install_plugins", function(use)
   }
 end)
 
--- NOTE: we heavily suggest using Packer's lazy loading (with the 'event' field)
+-- NOTE: we heavily suggest using Packer's lazy loading (with the 'event','cmd' fields)
 -- see: https://github.com/wbthomason/packer.nvim
 -- https://nvchad.github.io/config/walkthrough
