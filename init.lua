@@ -7,19 +7,19 @@
 local hooks = require "core.hooks"
 
 -- 全局按键配置
-  vim.g.maplocalleader = ';'
-  vim.g.did_load_filetypes = 1
+vim.g.maplocalleader = ';'
+vim.g.did_load_filetypes = 1
 
 -- neovide 配置
-  vim.o.guifont = 'Hack Nerd Font Mono'
-  -- vim.g.neovide_fullscreen = true
-  vim.g.neovide_cursor_vfx_mode = "railgun"
+vim.o.guifont = 'Hack Nerd Font Mono'
+-- vim.g.neovide_fullscreen = true
+vim.g.neovide_cursor_vfx_mode = "railgun"
 
 -- vimspector 配置
-  vim.g.vimspector_enable_mappings = 'HUMAN'
+vim.g.vimspector_enable_mappings = 'HUMAN'
 
 -- json 格式化
-  vim.cmd [[ com! FormatJSON %!python3 -c "import json, sys, collections; print(json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=4))" ]]
+vim.cmd [[ com! FormatJSON %!python3 -c "import json, sys, collections; print(json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=4))" ]]
 
 -- MAPPINGS
 -- To add new plugins, use the "setup_mappings" hook,
@@ -27,28 +27,28 @@ local hooks = require "core.hooks"
 hooks.add("setup_mappings", function(map)
   local opt = { noremap = true, silent = true }
 
--- 功能增强
+  -- 功能增强
   map("n", "q", ":q <CR>", opt)
   map("n", "Q", "q", opt)
   map("n", "gQ", "@q", opt)
--- 代码块缩进
+  -- 代码块缩进
   map("x", "<", "<gv", opt)
   map("x", ">", ">gv", opt)
  
--- 窗口尺寸
+  -- 窗口尺寸
   map("", "<A-h>", "<C-w><", opt)
   map("", "<A-j>", "<C-w>-", opt)
   map("", "<A-k>", "<C-w>+", opt)
   map("", "<A-l>", "<C-w>>", opt)
  
--- 快速复制当前文件路径
+  -- 快速复制当前文件路径
   map("n", "<leader>y", ":let @+=expand(\"%:~:.\")<CR>:echo '✋ 复制相对路径完成！'<CR>", opt)
   map("n", "<leader>Y", ":let @+=expand(\"%:p\")<CR>:echo '✋ 复制绝对路径完成！'<CR>", opt)
  
--- 功能开关
+  -- 功能开关
   map("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", opt)
  
--- 插件映射
+  -- 插件映射
   map("n", "<leader>cc", ":Telescope <CR>", opt)
   map("v", "<leader>fm", ":lua vim.lsp.buf.range_formatting()<CR>", opt)
 end)
@@ -63,7 +63,7 @@ end)
 -- examples below:
 
 hooks.add("install_plugins", function(use)
--- LSP
+  -- LSP
   use { -- null-ls.nvim
     -- 代码语法检查&格式化
     "jose-elias-alvarez/null-ls.nvim",
@@ -72,7 +72,7 @@ hooks.add("install_plugins", function(use)
       require("custom.plugins.null-ls").setup()
     end,
   }
--- 代码调试
+  -- 代码调试
   use { -- vimspector
     "puremourning/vimspector",
     event = "BufRead",
@@ -108,7 +108,7 @@ hooks.add("install_plugins", function(use)
       require("core.utils").packer_lazy_load("sniprun")
     end,
   }
--- 滚屏
+  -- 滚屏
   use { -- neoscroll.nvim
     -- 平滑滚动
     "karb94/neoscroll.nvim",
@@ -122,16 +122,17 @@ hooks.add("install_plugins", function(use)
       require("core.utils").packer_lazy_load("neoscroll.nvim")
     end,
   }
--- misc
+  -- misc
   use { -- filetype.nvim
     -- 文件类型检测
     "nathom/filetype.nvim",
     config = function()
       vim.cmd [[ autocmd Filetype python setlocal foldmethod=indent expandtab tabstop=4 shiftwidth=4 softtabstop=4 nofoldenable ]]
       vim.cmd [[ autocmd Filetype markdown setlocal foldmethod=indent noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 ]]
+      vim.cmd [[ autocmd Filetype lua setlocal foldmethod=expr foldexpr=nvim_treesitter#foldexpr() expandtab tabstop=2 shiftwidth=2 softtabstop=2 ]]
     end,
   }
--- 分屏&窗口
+  -- 分屏&窗口
   use { -- stabilize.nvim
     -- 分屏时稳定内容显示
     "luukvbaal/stabilize.nvim",
@@ -139,7 +140,7 @@ hooks.add("install_plugins", function(use)
       require("stabilize").setup()
     end,
   }
--- Markdown
+  -- Markdown
   use { -- nvim-markdown-preview
     -- 动态预览
     "davidgranstrom/nvim-markdown-preview",
@@ -147,7 +148,7 @@ hooks.add("install_plugins", function(use)
       require("core.utils").packer_lazy_load("nvim-markdown-preview")
     end,
   }
--- 语法
+  -- 语法
   use { -- surround
     "blackCauldron7/surround.nvim",
     config = function()
@@ -156,7 +157,7 @@ hooks.add("install_plugins", function(use)
       })
     end,
   }
--- Git
+  -- Git
   use { -- vim-fugitive
     "tpope/vim-fugitive",
     event = "BufRead",
@@ -167,7 +168,7 @@ hooks.add("install_plugins", function(use)
       require("core.utils").packer_lazy_load("vim-fugitive")
     end,
   }
--- 编辑支持
+  -- 编辑支持
   use { -- nvim-lastplace
     -- 在上次编辑的位置打开文件
     'ethanholz/nvim-lastplace',
@@ -179,7 +180,7 @@ hooks.add("install_plugins", function(use)
       }
     end,
   }
--- 光标线
+  -- 光标线
   use { -- nvim-cursorword
     "xiyaowong/nvim-cursorword",
     event = "BufRead",
@@ -187,7 +188,7 @@ hooks.add("install_plugins", function(use)
       require("core.utils").packer_lazy_load("nvim-cursorword")
     end
   }
--- 搜索
+  -- 搜索
   use { -- nvim-hlslens
     'kevinhwang91/nvim-hlslens',
     event = "BufRead",
@@ -243,5 +244,3 @@ end)
 -- NOTE: we heavily suggest using Packer's lazy loading (with the 'event' field)
 -- see: https://github.com/wbthomason/packer.nvim
 -- https://nvchad.github.io/config/walkthrough
-
--- vim: set foldmethod=indent ts=2 sw=2 tw=80 et :
