@@ -38,6 +38,10 @@ M.mappings = {
 
 -- 插件相关的按键映射
 M.mappings.plugins = {
+  comment = {
+    toggle = "<localleader>c",
+  },
+
   nvimtree = {
     toggle = "<localleader>e",
     focus = "<localleader>a",
