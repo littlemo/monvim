@@ -30,6 +30,10 @@ M.plugins = {
 -- 按键映射 {{{
 -- 非插件映射
 M.mappings = {
+  misc = {
+    copy_whole_file = "<A-y>",
+  },
+
   insert_nav = {
     backward = "<C-b>",
     forward = "<C-f>",
