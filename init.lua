@@ -7,6 +7,15 @@ vim.o.guifont = 'Hack Nerd Font Mono'
 -- vim.g.neovide_fullscreen = true
 vim.g.neovide_cursor_vfx_mode = "railgun"
 
+if vim.g.nvui then
+  -- Configure through vim commands
+  vim.cmd [[NvuiCmdFontFamily Hack Nerd Font Mono]]
+  vim.cmd [[NvuiCmdFontSize 35.0]]
+  vim.cmd [[NvuiScrollAnimationDuration 0.2]]
+  vim.cmd [[autocmd InsertEnter * NvuiIMEEnable]]
+  vim.cmd [[autocmd InsertLeave * NvuiIMEDisable]]
+end
+
 -- json 格式化
 vim.cmd [[ com! FormatJSON %!python3 -c "import json, sys, collections; print(json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=4))" ]]
 
