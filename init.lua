@@ -10,8 +10,8 @@ vim.g.neovide_cursor_vfx_mode = "railgun"
 if vim.g.nvui then
   -- Configure through vim commands
   vim.cmd [[NvuiCmdFontFamily Hack Nerd Font Mono]]
-  vim.cmd [[NvuiCmdFontSize 35.0]]
-  vim.cmd [[NvuiScrollAnimationDuration 0.2]]
+  vim.cmd [[NvuiCmdFontSize 20.0]]
+  vim.cmd [[NvuiScrollAnimationDuration 0.1]]
   vim.cmd [[autocmd InsertEnter * NvuiIMEEnable]]
   vim.cmd [[autocmd InsertLeave * NvuiIMEDisable]]
 end
