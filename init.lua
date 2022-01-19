@@ -97,20 +97,6 @@ customPlugins.add(function(use)
       require("core.utils").packer_lazy_load("sniprun")
     end,
   }
-  -- 滚屏
-  use { -- neoscroll.nvim
-    -- 平滑滚动
-    "karb94/neoscroll.nvim",
-    opt = true,
-    config = function()
-      require("neoscroll").setup()
-    end,
-
-    -- lazy loading
-    setup = function()
-      require("core.utils").packer_lazy_load("neoscroll.nvim")
-    end,
-  }
   -- misc
   use { -- filetype.nvim
     -- 文件类型检测
