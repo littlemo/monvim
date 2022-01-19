@@ -106,6 +106,7 @@ customPlugins.add(function(use)
       vim.cmd [[ autocmd Filetype markdown setlocal foldmethod=expr foldexpr=nvim_treesitter#foldexpr() noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 ]]
       vim.cmd [[ autocmd Filetype lua setlocal foldmethod=expr foldexpr=nvim_treesitter#foldexpr() expandtab tabstop=2 shiftwidth=2 softtabstop=2 ]]
       vim.cmd [[ autocmd Filetype json setlocal foldmethod=indent expandtab tabstop=4 shiftwidth=4 softtabstop=4 ]]
+      vim.cmd [[ autocmd Filetype yaml setlocal foldmethod=indent expandtab tabstop=2 shiftwidth=2 softtabstop=2 ]]
     end,
   }
   use { -- vim-startuptime
