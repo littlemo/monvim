@@ -28,6 +28,7 @@ M.plugins = {
   default_plugin_config_replace = {
     nvim_tree = "custom.plugins.nvimtree",
     nvim_treesitter = "custom.plugins.treesitter",
+    gitsigns = "custom.plugins.gitsigns",
   },
 }
 -- }}}
