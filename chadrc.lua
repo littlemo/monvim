@@ -47,6 +47,11 @@ M.mappings = {
 
 -- 插件相关的按键映射
 M.mappings.plugins = {
+  bufferline = {
+    next_buffer = "gn",
+    prev_buffer = "gp",
+  },
+
   comment = {
     toggle = "<localleader>c",
   },
