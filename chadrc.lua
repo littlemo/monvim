@@ -53,7 +53,7 @@ M.mappings.plugins = {
   },
 
   comment = {
-    toggle = "<localleader>c",
+    toggle = "gcc",
   },
 
   nvimtree = {
