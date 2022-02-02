@@ -12,7 +12,11 @@ M.ui = {
 }
 -- }}}
 -- 插件配置 {{{
+-- Install plugins
+local userPlugins = require "custom.plugins"
+
 M.plugins = {
+  install = userPlugins,
   options = {
     nvimtree = {
       enable_git = 1,
