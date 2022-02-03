@@ -44,6 +44,7 @@ map("n", "<leader>Y", ":let @+=expand(\"%:p\")<CR>:echo '✋ 复制绝对路径�
 
 -- 功能开关
 map("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", opt)
+map('n', '<localleader>e', ':RnvimrToggle<CR>', opt)
 
 -- 插件映射
 map("n", "<leader>cc", ":Telescope <CR>", opt)

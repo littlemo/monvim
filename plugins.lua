@@ -171,5 +171,31 @@ return {
       require("core.utils").packer_lazy_load("vim-asterisk")
     end,
   },
+  { -- rnvimr
+    'kevinhwang91/rnvimr',
+    cmd = 'RnvimrToggle',
+    config = function()
+      vim.cmd [[ tnoremap <silent> <M-i> <C-\><C-n>:RnvimrResize<CR> ]]
+      vim.cmd [[ nnoremap <silent> <localleader>e :RnvimrToggle<CR> ]]
+      vim.cmd [[ tnoremap <silent> <localleader>e <C-\><C-n>:RnvimrToggle<CR> ]]
+      vim.g.rnvimr_enable_ex = 1
+      vim.g.rnvimr_enable_picker = 1
+      vim.g.rnvimr_enable_bw = 1
+      vim.g.rnvimr_shadow_winblend = 20
+      vim.cmd [[ highlight link RnvimrNormal CursorLine ]]
+      vim.cmd [[ let g:rnvimr_action = {
+        \  '<C-t>': 'NvimEdit tabedit',
+        \  '<C-x>': 'NvimEdit split',
+        \  '<C-v>': 'NvimEdit vsplit',
+        \  '<C-o>': 'NvimEdit drop',
+        \  'gw': 'JumpNvimCwd',
+        \  'yw': 'EmitRangerCwd'
+        \}
+      ]]
+    end,
+    setup = function()
+      require("core.utils").packer_lazy_load("rnvimr")
+    end,
+  },
 }
 
