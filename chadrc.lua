@@ -17,6 +17,9 @@ local userPlugins = require "custom.plugins"
 
 M.plugins = {
   install = userPlugins,
+  status = {
+    nvimtree = false,  -- 关闭 nvimtree 插件
+  },
   options = {
     nvimtree = {
       enable_git = 1,
