@@ -25,8 +25,9 @@ local opt = { noremap = true, silent = true }
 
 -- 功能增强
 map("n", "q", ":q <CR>", opt)
-map("n", "Q", "q", opt)
-map("n", "gQ", "@q", opt)
+map("n", "Q", ":qa <CR>", opt)
+map("n", "<localleader>q", "q", opt)
+map("n", "<localleader>Q", "@q", opt)
 -- 代码块缩进
 map("x", "<", "<gv", opt)
 map("x", ">", ">gv", opt)
