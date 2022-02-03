@@ -22,13 +22,13 @@ M.plugins = {
       enable_git = 1,
     },
     lspconfig = {
-      setup_lspconf = "custom.plugins.lspconfig"
+      setup_lspconf = "custom.configs.lspconfig"
     },
   },
   default_plugin_config_replace = {
-    nvim_tree = "custom.plugins.nvimtree",
-    nvim_treesitter = "custom.plugins.treesitter",
-    gitsigns = "custom.plugins.gitsigns",
+    nvim_tree = "custom.configs.nvimtree",
+    nvim_treesitter = "custom.configs.treesitter",
+    gitsigns = "custom.configs.gitsigns",
   },
 }
 -- }}}

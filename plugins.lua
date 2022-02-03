@@ -7,7 +7,7 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
     after = "nvim-lspconfig",
     config = function()
-      require("custom.plugins.null-ls").setup()
+      require("custom.configs.null-ls").setup()
     end,
   },
   -- 代码调试
@@ -170,6 +170,6 @@ return {
     setup = function()
       require("core.utils").packer_lazy_load("vim-asterisk")
     end,
-  }
+  },
 }
 
