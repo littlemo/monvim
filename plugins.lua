@@ -81,12 +81,18 @@ return {
     end,
   },
   -- 语法
-  { -- surround
-    "blackCauldron7/surround.nvim",
-    config = function()
-      require"surround".setup({
-        mappings_style = "surround"
-      })
+  { -- vim-surround
+    'tpope/vim-surround',
+    event = 'BufRead',
+    setup = function()
+      require('core.utils').packer_lazy_load('vim-surround')
+    end,
+  },
+  { -- vim-surround
+    'tpope/vim-repeat',
+    event = 'BufRead',
+    setup = function()
+      require('core.utils').packer_lazy_load('vim-repeat')
     end,
   },
   -- Git
