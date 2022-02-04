@@ -46,6 +46,10 @@ M.mappings = {
     backward = "<C-b>",
     forward = "<C-f>",
   },
+
+  terminal = {
+    esc_termmode = { "<C-[>" },
+  },
 }
 
 -- 插件相关的按键映射
