@@ -197,5 +197,14 @@ return {
       require("core.utils").packer_lazy_load("rnvimr")
     end,
   },
+  { -- wilder.nvim
+    -- 增强 cmdline 补全&提示功能
+    'gelguy/wilder.nvim',
+    event = 'CmdlineEnter',
+    run = 'brew install fd',
+    config = function()
+      require("custom.configs.wilder").setup()
+    end,
+  },
 }
 
