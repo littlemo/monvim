@@ -206,5 +206,15 @@ return {
       require("custom.configs.wilder").setup()
     end,
   },
+  {
+    'akinsho/toggleterm.nvim',
+    cmd = { 'ToggleTerm', 'ToggleLazygit' },
+    config = function()
+      require("custom.configs.toggleterm").config()
+    end,
+    setup = function()
+      require("custom.configs.toggleterm").setup()
+    end,
+  },
 }
 
