@@ -118,6 +118,14 @@ return {
       }
     end,
   },
+  { -- dial.nvim
+    -- 增强原生 <C-a> / <C-x> 的自增自减功能
+    'monaqa/dial.nvim',
+    event = 'BufRead',
+    config = function()
+      require("custom.configs.dial").config()
+    end,
+  },
   -- 光标线
   { -- nvim-cursorword
     "xiyaowong/nvim-cursorword",
