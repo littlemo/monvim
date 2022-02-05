@@ -98,6 +98,8 @@ M.plugins = {
 M.mappings = {
   misc = {
     copy_whole_file = "<A-y>",
+    line_number_toggle = "<leader>tn",
+    relative_line_number_toggle = "<leader>tr",
   },
 
   insert_nav = {
