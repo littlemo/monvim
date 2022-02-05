@@ -53,6 +53,14 @@ map('n', '<leader>gg', ':ToggleLazygit<CR>', opt)
 map('n', '<leader>h', ':ToggleTerm size=15 dir=git_dir direction=horizontal<CR>', opt)
 map('n', '<leader>v', ':ToggleTerm size=vim.o.columns * 0.4 dir=git_dir direction=vertical<CR>', opt)
 
+-- 设置文件显示模式
+vim.cmd [[ autocmd Filetype python setlocal foldmethod=expr foldexpr=nvim_treesitter#foldexpr() expandtab tabstop=4 shiftwidth=4 softtabstop=4 nofoldenable ]]
+vim.cmd [[ autocmd Filetype markdown setlocal foldmethod=expr foldexpr=nvim_treesitter#foldexpr() noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 ]]
+vim.cmd [[ autocmd Filetype lua setlocal foldmethod=expr foldexpr=nvim_treesitter#foldexpr() expandtab tabstop=2 shiftwidth=2 softtabstop=2 ]]
+vim.cmd [[ autocmd Filetype json setlocal foldmethod=indent expandtab tabstop=4 shiftwidth=4 softtabstop=4 foldlevel=1 ]]
+vim.cmd [[ autocmd Filetype yaml setlocal foldmethod=indent expandtab tabstop=2 shiftwidth=2 softtabstop=2 foldlevel=1 ]]
+
+
 -- NOTE: we heavily suggest using Packer's lazy loading (with the 'event','cmd' fields)
 -- see: https://github.com/wbthomason/packer.nvim
 -- https://nvchad.github.io/config/walkthrough
