@@ -160,6 +160,15 @@ return {
       })
     end,
   },
+  { -- tabout.nvim
+    'abecodes/tabout.nvim',
+    event = 'InsertEnter',
+    requires = 'nvim-treesitter',
+    after = 'nvim-cmp',
+    config = function()
+      require('custom.configs.tabout').config()
+    end,
+  },
   -- 光标线
   { -- nvim-cursorword
     "xiyaowong/nvim-cursorword",
