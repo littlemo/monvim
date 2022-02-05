@@ -149,6 +149,7 @@ return {
       }
     end,
   },
+  {'romgrk/nvim-treesitter-context', event = 'BufRead', after = 'nvim-treesitter'},
   -- 光标线
   { -- nvim-cursorword
     "xiyaowong/nvim-cursorword",
