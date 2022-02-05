@@ -21,15 +21,11 @@ M.plugins = {
     nvimtree = false,  -- 关闭 nvimtree 插件
   },
   options = {
-    nvimtree = {
-      enable_git = 1,
-    },
     lspconfig = {
       setup_lspconf = "custom.configs.lspconfig"
     },
   },
   default_plugin_config_replace = {
-    nvim_tree = "custom.configs.nvimtree",
     nvim_treesitter = "custom.configs.treesitter",
     gitsigns = "custom.configs.gitsigns",
   },
