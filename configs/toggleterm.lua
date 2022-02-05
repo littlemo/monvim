@@ -44,6 +44,7 @@ M.config = function()
   local Terminal  = require('toggleterm.terminal').Terminal
   local lazygit = Terminal:new({
     cmd = "lazygit",
+    hidden = false,
     count = 5,
     dir = "git_dir",
     direction = "float",
