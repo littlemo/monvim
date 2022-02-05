@@ -47,7 +47,6 @@ map("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", opt)
 map('n', '<localleader>e', ':RnvimrToggle<CR>', opt)
 
 -- 插件映射
-map("n", "<leader>cc", ":Telescope <CR>", opt)
 map("v", "<leader>fm", ":lua vim.lsp.buf.range_formatting()<CR>", opt)
 map('n', '<leader>gg', ':ToggleLazygit<CR>', opt)
 map('n', '<leader>s', ':ToggleTerm size=15 dir=git_dir direction=horizontal<CR>', opt)

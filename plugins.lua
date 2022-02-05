@@ -52,6 +52,13 @@ return {
     "dstein64/vim-startuptime",
     cmd = "StartupTime",
   },
+  {
+    "folke/which-key.nvim",
+    event = 'BufRead',
+    config = function()
+      require('custom.configs.which-key').config()
+    end,
+  },
   -- 分屏&窗口
   { -- stabilize.nvim
     -- 分屏时稳定内容显示
