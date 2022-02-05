@@ -169,6 +169,16 @@ return {
       require('custom.configs.tabout').config()
     end,
   },
+  { -- iswap.nvim
+    'mizlan/iswap.nvim',
+    cmd = 'ISwapWith',
+    requires = 'nvim-treesitter',
+    config = function()
+      require('iswap').setup({
+        autoswap = true,
+      })
+    end,
+  },
   -- 光标线
   { -- nvim-cursorword
     "xiyaowong/nvim-cursorword",

@@ -52,6 +52,7 @@ map("v", "<leader>fm", ":lua vim.lsp.buf.range_formatting()<CR>", opt)
 map('n', '<leader>gg', ':ToggleLazygit<CR>', opt)
 map('n', '<leader>s', ':ToggleTerm size=15 dir=git_dir direction=horizontal<CR>', opt)
 map('n', '<leader>v', ':ToggleTerm size=vim.o.columns * 0.4 dir=git_dir direction=vertical<CR>', opt)
+map('n', '<leader>sp', ':ISwapWith<CR>', opt)
 
 -- 设置文件显示模式
 vim.cmd [[ autocmd Filetype python setlocal foldmethod=expr foldexpr=nvim_treesitter#foldexpr() expandtab tabstop=4 shiftwidth=4 softtabstop=4 nofoldenable ]]
