@@ -233,7 +233,7 @@ return {
       require("custom.configs.wilder").setup()
     end,
   },
-  {
+  { -- toggleterm.nvim
     'akinsho/toggleterm.nvim',
     cmd = { 'ToggleTerm', 'ToggleLazygit' },
     config = function()
