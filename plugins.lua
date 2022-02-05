@@ -139,6 +139,27 @@ return {
     end,
   },
   {'romgrk/nvim-treesitter-context', event = 'BufRead', after = 'nvim-treesitter'},
+  { -- pretty-fold.nvim
+    'anuvyklack/pretty-fold.nvim',
+    event = 'BufRead',
+    config = function()
+      require('pretty-fold').setup({
+        keep_indentation = false,
+        fill_char = '•',
+        sections = {
+          left = {
+            '━ ', function() return string.rep('*', vim.v.foldlevel) end, ' ━┫', 'content', '┣━'
+          },
+          right = {
+            '━┫ ', 'number_of_folded_lines', ': ', 'percentage', ' ┣━━',
+          }
+        }
+      })
+      require('pretty-fold.preview').setup({
+        border = 'rounded',
+      })
+    end,
+  },
   -- 光标线
   { -- nvim-cursorword
     "xiyaowong/nvim-cursorword",
