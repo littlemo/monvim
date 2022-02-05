@@ -77,7 +77,7 @@ return {
       require('core.utils').packer_lazy_load('vim-surround')
     end,
   },
-  { -- vim-surround
+  { -- vim-repeat
     'tpope/vim-repeat',
     event = 'BufRead',
     setup = function()
