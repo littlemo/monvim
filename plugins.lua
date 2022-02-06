@@ -10,6 +10,10 @@ return {
       require("custom.configs.null-ls").setup()
     end,
   },
+  { -- nvim-lsp-installer
+    'williamboman/nvim-lsp-installer',
+    cmd = {'LspInstallInfo', 'LspInstall', 'LspUninstall', 'LspUninstallAll', 'LspInstallLog', 'LspPrintInstalled'},
+  },
   -- 代码调试
   { -- vimspector
     "puremourning/vimspector",
