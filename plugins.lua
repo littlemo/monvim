@@ -52,7 +52,7 @@ return {
     "dstein64/vim-startuptime",
     cmd = "StartupTime",
   },
-  {
+  { -- which-key.nvim
     "folke/which-key.nvim",
     event = 'BufRead',
     config = function()
@@ -122,8 +122,15 @@ return {
       require("custom.configs.dial").config()
     end,
   },
-  {'kana/vim-textobj-user', event = 'BufRead'},
-  {'sgur/vim-textobj-parameter', event = 'BufRead', after = 'vim-textobj-user'},
+  { -- vim-textobj-user
+    'kana/vim-textobj-user',
+    event = 'BufRead'
+  },
+  { -- vim-textobj-parameter
+    'sgur/vim-textobj-parameter',
+    event = 'BufRead',
+    after = 'vim-textobj-user'
+  },
   { -- nvim-revJ.lua
     -- 支持行拆分功能，与 join-line(J) 相反
     'AckslD/nvim-revJ.lua',
@@ -145,7 +152,11 @@ return {
       }
     end,
   },
-  {'romgrk/nvim-treesitter-context', event = 'BufRead', after = 'nvim-treesitter'},
+  { -- nvim-treesitter-context
+    'romgrk/nvim-treesitter-context',
+    event = 'BufRead',
+    after = 'nvim-treesitter'
+  },
   { -- pretty-fold.nvim
     'anuvyklack/pretty-fold.nvim',
     event = 'BufRead',
