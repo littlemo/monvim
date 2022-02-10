@@ -263,7 +263,7 @@ return {
   { -- rnvimr
     'kevinhwang91/rnvimr',
     cmd = 'RnvimrToggle',
-    run = 'pip3 install ranger-fm pynvim',
+    run = 'pip3 install ranger-fm pynvim && brew install highlight',
     config = function()
       vim.cmd [[ tnoremap <silent> <M-i> <C-\><C-n>:RnvimrResize<CR> ]]
       vim.cmd [[ nnoremap <silent> <localleader>e :RnvimrToggle<CR> ]]
