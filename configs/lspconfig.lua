@@ -7,7 +7,7 @@ M.setup_lsp = function(attach, capabilities)
   local servers = {
     "sumneko_lua",  -- 安装 brew install lua-language-server
     "jedi_language_server",  -- 安装 pip3 install -U jedi-language-server
-    "pyright",  -- 安装 pip3 install pyright / npm install -g pyright
+    -- "pyright",  -- 安装 pip3 install pyright / npm install -g pyright
     "tailwindcss",  -- 安装 npm install -g @tailwindcss/language-server
   }
 
