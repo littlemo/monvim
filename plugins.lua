@@ -122,6 +122,7 @@ return {
     -- 增强原生 <C-a> / <C-x> 的自增自减功能
     'monaqa/dial.nvim',
     event = 'BufRead',
+    tag = 'v0.2.0',
     config = function()
       require("custom.configs.dial").config()
     end,
