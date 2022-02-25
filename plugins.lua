@@ -63,6 +63,38 @@ return {
       require('custom.configs.which-key').config()
     end,
   },
+  { -- plantuml-syntax
+    "aklt/plantuml-syntax",
+    ft = {'pu', 'uml', 'puml', 'iuml', 'plantuml'},
+    config = function()
+      vim.cmd [[
+        let g:plantuml_executable_script = get(
+          \  matchlist(system('cat `which plantuml` | grep plantuml.jar'), '\v.*\s[''"]?(\S+plantuml\.jar).*'),
+          \  1,
+          \  0
+          \)
+      ]]
+    end,
+  },
+  { -- open-browser.vim
+    "tyru/open-browser.vim",
+    cmd = 'PlantumlOpen',
+  },
+  { -- plantuml-previewer.vim
+    "weirongxu/plantuml-previewer.vim",
+    after = {"open-browser.vim"},
+    cmd = 'PlantumlOpen',
+    config = function ()
+      vim.cmd [[
+        let g:plantuml_previewer#plantuml_jar_path = get(
+          \  matchlist(system('cat `which plantuml` | grep plantuml.jar'), '\v.*\s[''"]?(\S+plantuml\.jar).*'),
+          \  1,
+          \  0
+          \)
+        let g:plantuml_previewer#save_format = 'svg'
+      ]]
+    end,
+  },
   -- 分屏&窗口
   { -- stabilize.nvim
     -- 分屏时稳定内容显示
