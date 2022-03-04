@@ -19,7 +19,7 @@ local sources = {
   -- b.formatting.reorder_python_imports,
   b.formatting.isort,
   b.formatting.yapf,
-  -- b.diagnostics.flake8,
+  b.diagnostics.flake8,
 
   -- misc
   b.formatting.json_tool,
