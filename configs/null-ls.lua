@@ -40,6 +40,8 @@ M.setup = function()
     --   end
     -- end,
   }
+  vim.api.nvim_set_keymap('n', '<leader>F', '<cmd>lua vim.lsp.buf.formatting()<CR>', {})
+  vim.api.nvim_set_keymap('v', '<leader>F', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', {})
 end
 
 return M
