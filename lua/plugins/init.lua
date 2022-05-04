@@ -205,14 +205,15 @@ local plugins = {
    },
 
    -- file managing , picker etc
-   ["kyazdani42/nvim-tree.lua"] = {
-      cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+   ['kevinhwang91/rnvimr'] = {
+      cmd = 'RnvimrToggle',
+      run = 'pip3 install ranger-fm pynvim && brew install highlight',
       setup = function()
-         require("core.mappings").nvimtree()
+         require("core.mappings").rnvimr()
       end,
 
       config = function()
-         require "plugins.configs.nvimtree"
+         require "plugins.configs.rnvimr"
       end,
    },
 

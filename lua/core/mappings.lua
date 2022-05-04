@@ -178,9 +178,9 @@ M.lspconfig = function()
    end)
 end
 
-M.nvimtree = function()
-   map("n", "<C-n>", "<cmd> :NvimTreeToggle <CR>")
-   map("n", "<leader>e", "<cmd> :NvimTreeFocus <CR>")
+M.rnvimr = function()
+   map("n", "<leader>e", "<cmd> :RnvimrToggle <CR>")
+   map("t", "<leader>e", "<C-\\><C-n>:RnvimrToggle <CR>")
 end
 
 M.telescope = function()
