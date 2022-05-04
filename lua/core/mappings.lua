@@ -25,11 +25,11 @@ map("", "<Up>", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
 map("n", "<Esc>", "<cmd> :noh <CR>")
 
 -- move cursor within insert mode
-map("i", "<C-h>", "<Left>")
+-- map("i", "<C-h>", "<Left>")
 map("i", "<C-e>", "<End>")
-map("i", "<C-l>", "<Right>")
-map("i", "<C-j>", "<Down>")
-map("i", "<C-k>", "<Up>")
+-- map("i", "<C-l>", "<Right>")
+-- map("i", "<C-j>", "<Down>")
+-- map("i", "<C-k>", "<Up>")
 map("i", "<C-a>", "<ESC>^i")
 
 -- navigation between windows
@@ -52,7 +52,7 @@ map("n", "<C-s>", "<cmd> :w <CR>") -- ctrl + s to save file
 -- terminal mappings
 
 -- get out of terminal mode
-map("t", { "jk" }, "<C-\\><C-n>")
+-- map("t", { "jk" }, "<C-\\><C-n>")
 
 -- Add Packer commands because we are not loading it at startup
 
@@ -86,9 +86,6 @@ user_cmd("PackerStatus", packer_cmd "status", {})
 user_cmd("PackerSync", packer_cmd "sync", {})
 user_cmd("PackerUpdate", packer_cmd "update", {})
 
--- add NvChadUpdate command and mapping
-cmd "silent! command! NvChadUpdate lua require('nvchad').update_nvchad()"
-map("n", "<leader>uu", "<cmd> :NvChadUpdate <CR>")
 
 -- load overriden misc mappings
 require("core.utils").load_config().mappings.misc()
@@ -103,8 +100,8 @@ M.bufferline = function()
 end
 
 M.comment = function()
-   map("n", "<leader>/", "<cmd> :lua require('Comment.api').toggle_current_linewise()<CR>")
-   map("v", "<leader>/", "<esc><cmd> :lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>")
+   map("n", "gcc", "<cmd> :lua require('Comment.api').toggle_current_linewise()<CR>")
+   map("v", "gcc", "<esc><cmd> :lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>")
 end
 
 M.lspconfig = function()
