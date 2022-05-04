@@ -3,6 +3,7 @@ local utils = require "core.utils"
 local map = utils.map
 local cmd = vim.cmd
 local user_cmd = vim.api.nvim_create_user_command
+local user_opt = { noremap = true, silent = true }
 
 -- This is a wrapper function made to disable a plugin mapping from chadrc
 -- If keys are nil, false or empty string, then the mapping will be not applied
@@ -86,6 +87,28 @@ user_cmd("PackerStatus", packer_cmd "status", {})
 user_cmd("PackerSync", packer_cmd "sync", {})
 user_cmd("PackerUpdate", packer_cmd "update", {})
 
+-- json 格式化
+cmd [[ com! FormatJSON %!python3 -c "import json, sys, collections; print(json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), ensure_ascii=False, indent=4))" ]]
+
+-- 功能增强
+map("n", "q", ":q <CR>", user_opt)
+map("n", "Q", ":qa <CR>", user_opt)
+map("n", "<localleader>q", "q", user_opt)
+map("n", "<localleader>Q", "@q", user_opt)
+
+-- 代码块缩进
+map("x", "<", "<gv", user_opt)
+map("x", ">", ">gv", user_opt)
+
+-- 窗口尺寸
+map("", "<A-h>", "<C-w><", user_opt)
+map("", "<A-j>", "<C-w>-", user_opt)
+map("", "<A-k>", "<C-w>+", user_opt)
+map("", "<A-l>", "<C-w>>", user_opt)
+
+-- 快速复制当前文件路径
+map("n", "<leader>y", ":let @+=expand(\"%:~:.\")<CR>:echo '✋ 复制相对路径完成！'<CR>", user_opt)
+map("n", "<leader>Y", ":let @+=expand(\"%:p\")<CR>:echo '✋ 复制绝对路径完成！'<CR>", user_opt)
 
 -- load overriden misc mappings
 require("core.utils").load_config().mappings.misc()
