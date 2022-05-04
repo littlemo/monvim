@@ -110,6 +110,9 @@ map("", "<A-l>", "<C-w>>", user_opt)
 map("n", "<leader>y", ":let @+=expand(\"%:~:.\")<CR>:echo '✋ 复制相对路径完成！'<CR>", user_opt)
 map("n", "<leader>Y", ":let @+=expand(\"%:p\")<CR>:echo '✋ 复制绝对路径完成！'<CR>", user_opt)
 
+-- 功能开关
+map("n", "<leader>tb", ":Gitsigns toggle_current_line_blame<CR>", user_opt)
+
 -- load overriden misc mappings
 require("core.utils").load_config().mappings.misc()
 

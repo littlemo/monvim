@@ -201,6 +201,11 @@ M.gitsigns = function()
    end
 
    gitsigns.setup {
+      current_line_blame = true,
+      current_line_blame_opts = {
+        delay = 200,
+        ignore_whitespace = true,
+      },
       signs = {
          add = { hl = "DiffAdd", text = "│", numhl = "GitSignsAddNr" },
          change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
