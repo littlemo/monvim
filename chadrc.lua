@@ -26,7 +26,7 @@ M.ui = {
 }
 
 M.plugins = {
-   override = {},
+   override = require("custom.plugins.override"),
    remove = {},
 
    options = {
