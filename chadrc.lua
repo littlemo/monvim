@@ -42,7 +42,7 @@ M.plugins = {
    },
 
    -- add, modify, remove plugins
-   user = {},
+   user = require("custom.plugins"),
 }
 
 -- check core.mappings for table structure
