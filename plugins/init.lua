@@ -18,6 +18,16 @@ return {
       require("custom.plugins.configs.others").lastplace()
     end,
   },
+  ['kevinhwang91/rnvimr'] = {
+     cmd = 'RnvimrToggle',
+     run = 'pip3 install ranger-fm pynvim',
+     -- setup = function()
+     --    require("core.mappings").rnvimr()
+     -- end,
+     config = function()
+        require("custom.plugins.configs.rnvimr")
+     end,
+  },
 
   -- 版本管理
   ["tpope/vim-fugitive"] = {
