@@ -1,6 +1,8 @@
 -- remove this if you dont use custom.init.lua at all
 require "custom"
 
+local pluginConfigs = require("custom.plugins.configs")
+
 local M = {}
 
 M.options = {
@@ -26,7 +28,9 @@ M.ui = {
 }
 
 M.plugins = {
-   override = require("custom.plugins.override"),
+   override = {
+     ["nvim-treesitter/nvim-treesitter"] = pluginConfigs.treesitter,
+   },
    remove = {},
 
    options = {
