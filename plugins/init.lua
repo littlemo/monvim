@@ -12,4 +12,12 @@ return {
       nvchad.packer_lazy_load "vim-repeat"
     end,
   },
+
+  -- 版本管理
+  ["tpope/vim-fugitive"] = {
+    cmd = "Git",
+    setup = function()
+      nvchad.packer_lazy_load "vim-fugitive"
+    end,
+  },
 }
