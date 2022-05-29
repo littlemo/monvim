@@ -1,5 +1,5 @@
 return {
-  -- 通用操作
+  -- 功能增强
   ["tpope/vim-surround"] = {
     event = 'BufRead',
     setup = function ()
@@ -10,6 +10,12 @@ return {
     event = 'BufRead',
     setup = function ()
       require("core.utils").packer_lazy_load "vim-repeat"
+    end,
+  },
+  ["ethanholz/nvim-lastplace"] = {
+    -- NOTE: 此处需启动时加载插件，否则无法生效
+    config = function()
+      require("custom.plugins.configs.others").lastplace()
     end,
   },
 
