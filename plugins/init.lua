@@ -38,6 +38,12 @@ return {
       require("core.utils").packer_lazy_load("vim-asterisk")
     end,
   },
+  ["xiyaowong/nvim-cursorword"] = {
+    event = "BufRead",
+    setup = function()
+      require("core.utils").packer_lazy_load("nvim-cursorword")
+    end
+  },
 
   -- 版本管理
   ["tpope/vim-fugitive"] = {
