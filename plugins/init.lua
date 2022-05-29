@@ -25,6 +25,19 @@ return {
       require("custom.plugins.configs.rnvimr")
      end,
   },
+  ["kevinhwang91/nvim-hlslens"] = {
+    event = "BufRead",
+    config = function()
+      require("custom.plugins.configs.hlslens")
+    end
+  },
+  ["haya14busa/vim-asterisk"] = {
+    after = "nvim-hlslens",
+    event = "BufRead",
+    setup = function()
+      require("core.utils").packer_lazy_load("vim-asterisk")
+    end,
+  },
 
   -- 版本管理
   ["tpope/vim-fugitive"] = {
