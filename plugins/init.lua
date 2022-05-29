@@ -44,6 +44,12 @@ return {
       require("core.utils").packer_lazy_load("nvim-cursorword")
     end
   },
+  ["anuvyklack/pretty-fold.nvim"] = {
+    event = 'BufRead',
+    config = function()
+      require("custom.plugins.configs.others").prettyfold()
+    end,
+  },
 
   -- 版本管理
   ["tpope/vim-fugitive"] = {
