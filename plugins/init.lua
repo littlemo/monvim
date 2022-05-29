@@ -3,13 +3,13 @@ return {
   ["tpope/vim-surround"] = {
     event = 'BufRead',
     setup = function ()
-      nvchad.packer_lazy_load "vim-surround"
+      require("core.utils").packer_lazy_load "vim-surround"
     end,
   },
   ["tpope/vim-repeat"] = {
     event = 'BufRead',
     setup = function ()
-      nvchad.packer_lazy_load "vim-repeat"
+      require("core.utils").packer_lazy_load "vim-repeat"
     end,
   },
 
@@ -17,7 +17,7 @@ return {
   ["tpope/vim-fugitive"] = {
     cmd = "Git",
     setup = function()
-      nvchad.packer_lazy_load "vim-fugitive"
+      require("core.utils").packer_lazy_load "vim-fugitive"
     end,
   },
 }
