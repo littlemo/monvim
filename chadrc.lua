@@ -33,6 +33,7 @@ M.plugins = {
    },
    remove = {
      "kyazdani42/nvim-tree.lua",
+     "max397574/better-escape.nvim",
    },
 
    options = {
