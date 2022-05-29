@@ -3,13 +3,13 @@ return {
   ["tpope/vim-surround"] = {
     event = 'BufRead',
     setup = function ()
-      require("core.utils").packer_lazy_load "vim-surround"
+      require("core.utils").packer_lazy_load("vim-surround")
     end,
   },
   ["tpope/vim-repeat"] = {
     event = 'BufRead',
     setup = function ()
-      require("core.utils").packer_lazy_load "vim-repeat"
+      require("core.utils").packer_lazy_load("vim-repeat")
     end,
   },
   ["ethanholz/nvim-lastplace"] = {
@@ -18,14 +18,11 @@ return {
       require("custom.plugins.configs.others").lastplace()
     end,
   },
-  ['kevinhwang91/rnvimr'] = {
-     cmd = 'RnvimrToggle',
-     run = 'pip3 install ranger-fm pynvim',
-     -- setup = function()
-     --    require("core.mappings").rnvimr()
-     -- end,
+  ["kevinhwang91/rnvimr"] = {
+     cmd = "RnvimrToggle",
+     run = "pip3 install ranger-fm pynvim",
      config = function()
-        require("custom.plugins.configs.rnvimr")
+      require("custom.plugins.configs.rnvimr")
      end,
   },
 
@@ -33,7 +30,7 @@ return {
   ["tpope/vim-fugitive"] = {
     cmd = "Git",
     setup = function()
-      require("core.utils").packer_lazy_load "vim-fugitive"
+      require("core.utils").packer_lazy_load("vim-fugitive")
     end,
   },
 }
