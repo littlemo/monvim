@@ -50,6 +50,6 @@ M.plugins = {
 }
 
 -- check core.mappings for table structure
--- M.mappings = require "core.mappings"
+M.mappings = require("custom.mappings")
 
 return M
