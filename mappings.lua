@@ -50,4 +50,10 @@ M.asterisk = {
   }
 }
 
+M.gitsigns = {
+  n = {
+    ["<leader>tb"] = { ":Gitsigns toggle_current_line_blame<CR>", "   开关当前行 blame 显示" }
+  }
+}
+
 return M
