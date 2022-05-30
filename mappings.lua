@@ -4,6 +4,8 @@ M.disabled = {
   n = {
     ["<leader>/"] = "",
     ["<leader>e"] = "",
+    ["<leader>n"] = "",
+    ["<leader>rn"] = "",
   },
   i = {
     ["<C-h>"] = "",
@@ -20,6 +22,10 @@ M.general = {
     ["Q"] = { ":qa<CR>", "  quit all" },
     ["<localleader>q"] = { "q", "壘  record" },
     ["<localleader>Q"] = { "@q", "奈  play record" },
+
+     -- line numbers
+    ["<leader>tn"] = { "<cmd> set nu! <CR>", "   toggle line number" },
+    ["<leader>tr"] = { "<cmd> set rnu! <CR>", "   toggle relative number" },
   },
   i = {
     ["<C-f>"] = { "<Right>", "  forward character" },
