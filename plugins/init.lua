@@ -45,6 +45,7 @@ return {
     end
   },
   ["anuvyklack/pretty-fold.nvim"] = {
+    requires = 'anuvyklack/nvim-keymap-amend', -- only for preview
     event = 'BufRead',
     config = function()
       require("custom.plugins.configs.others").prettyfold()
