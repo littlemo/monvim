@@ -23,9 +23,13 @@ M.general = {
     ["<localleader>q"] = { "q", "壘  record" },
     ["<localleader>Q"] = { "@q", "奈  play record" },
 
-     -- line numbers
+    -- line numbers
     ["<leader>tn"] = { "<cmd> set nu! <CR>", "   toggle line number" },
     ["<leader>tr"] = { "<cmd> set rnu! <CR>", "   toggle relative number" },
+
+    -- copy path
+    ["yp"] = { ":let @+=expand(\"%:~:.\")<CR>:echo '✋ 复制相对路径完成！'<CR>", "   yank relative path" },
+    ["yP"] = { ":let @+=expand(\"%:p\")<CR>:echo '✋ 复制绝对路径完成！'<CR>", "   yank absolute path" },
   },
   i = {
     ["<C-f>"] = { "<Right>", "  forward character" },
