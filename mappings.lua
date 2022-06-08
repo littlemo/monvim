@@ -66,4 +66,10 @@ M.gitsigns = {
   }
 }
 
+M.fugitive = {
+  n = {
+    ["<leader>gb"] = { ":Git blame<CR>", "   全文 blame 显示" }
+  }
+}
+
 return M
