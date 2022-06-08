@@ -51,6 +51,12 @@ return {
       require("custom.plugins.configs.others").prettyfold()
     end,
   },
+  ["monaqa/dial.nvim"] = {
+    event = "BufRead",
+    config = function()
+      require("custom.plugins.configs.dial")
+    end,
+  },
 
   -- 版本管理
   ["tpope/vim-fugitive"] = {
