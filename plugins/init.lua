@@ -19,11 +19,11 @@ return {
     end,
   },
   ["kevinhwang91/rnvimr"] = {
-     cmd = "RnvimrToggle",
-     run = "pip3 install ranger-fm pynvim",
-     config = function()
+    cmd = "RnvimrToggle",
+    run = "pip3 install ranger-fm pynvim",
+    config = function()
       require("custom.plugins.configs.rnvimr")
-     end,
+    end,
   },
   ["kevinhwang91/nvim-hlslens"] = {
     event = "BufRead",
