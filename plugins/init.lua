@@ -2,15 +2,9 @@ return {
   -- 功能增强
   ["tpope/vim-surround"] = {
     event = 'BufRead',
-    setup = function ()
-      require("core.utils").packer_lazy_load("vim-surround")
-    end,
   },
   ["tpope/vim-repeat"] = {
     event = 'BufRead',
-    setup = function ()
-      require("core.utils").packer_lazy_load("vim-repeat")
-    end,
   },
   ["ethanholz/nvim-lastplace"] = {
     -- NOTE: 此处需启动时加载插件，否则无法生效
@@ -34,15 +28,9 @@ return {
   ["haya14busa/vim-asterisk"] = {
     after = "nvim-hlslens",
     event = "BufRead",
-    setup = function()
-      require("core.utils").packer_lazy_load("vim-asterisk")
-    end,
   },
   ["xiyaowong/nvim-cursorword"] = {
     event = "BufRead",
-    setup = function()
-      require("core.utils").packer_lazy_load("nvim-cursorword")
-    end
   },
   ["anuvyklack/pretty-fold.nvim"] = {
     requires = 'anuvyklack/nvim-keymap-amend', -- only for preview
@@ -61,8 +49,5 @@ return {
   -- 版本管理
   ["tpope/vim-fugitive"] = {
     cmd = "Git",
-    setup = function()
-      require("core.utils").packer_lazy_load("vim-fugitive")
-    end,
   },
 }
