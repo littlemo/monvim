@@ -17,6 +17,21 @@ M.crosshairs = function ()
   ]]
 end
 
+M.cursorword = function ()
+  vim.cmd [[
+    " disable highlighting for some filetypes
+    let g:cursorword_disable_filetypes = []
+
+    " min width of word
+    let g:cursorword_min_width = 3
+
+    " max width of word
+    let g:cursorword_max_width = 50
+
+    hi default CursorWord cterm=underline gui=underline
+  ]]
+end
+
 M.prettyfold = function ()
   local present, prettyfold = pcall(require, "pretty-fold")
 

@@ -36,6 +36,9 @@ return {
   },
   ["xiyaowong/nvim-cursorword"] = {  -- 高亮当前光标所在词
     event = "BufRead",
+    config = function ()
+      require("custom.plugins.configs.others").cursorword()
+    end
   },
   ["anuvyklack/pretty-fold.nvim"] = {  -- 代码折叠预览
     requires = 'anuvyklack/nvim-keymap-amend', -- only for preview
