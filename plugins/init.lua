@@ -6,7 +6,7 @@ return {
   ["tpope/vim-repeat"] = {
     event = 'BufRead',
   },
-  ["ethanholz/nvim-lastplace"] = {
+  ["farmergreg/vim-lastplace"] = {
     -- NOTE: 此处需启动时加载插件，否则无法生效
     config = function()
       require("custom.plugins.configs.others").lastplace()

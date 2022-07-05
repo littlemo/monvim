@@ -1,19 +1,11 @@
 local M = {}
 
 M.lastplace = function ()
-  local present, lastplace = pcall(require, "nvim-lastplace")
-
-  if not present then
-     return
-  end
-
-  local options = {
-    lastplace_ignore_buftype = {"quickfix", "nofile", "help"},
-    lastplace_ignore_filetype = {"gitcommit", "gitrebase", "svn", "hgcommit"},
-    lastplace_open_folds = true
-  }
-
-  lastplace.setup(options)
+  vim.cmd [[
+    let g:lastplace_ignore = "gitcommit,gitrebase,svn,hgcommit"
+    let g:lastplace_ignore_buftype = "quickfix,nofile,help"
+    let g:lastplace_open_folds = 0
+  ]]
 end
 
 M.prettyfold = function ()
