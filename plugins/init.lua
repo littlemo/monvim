@@ -12,6 +12,11 @@ return {
       require("custom.plugins.configs.others").lastplace()
     end,
   },
+  ["bronson/vim-crosshairs"] = {  -- 十字准线
+    config = function ()
+      require("custom.plugins.configs.others").crosshairs()
+    end,
+  },
   ["kevinhwang91/rnvimr"] = {
     cmd = "RnvimrToggle",
     run = "pip3 install ranger-fm pynvim",

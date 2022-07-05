@@ -8,6 +8,15 @@ M.lastplace = function ()
   ]]
 end
 
+M.crosshairs = function ()
+  vim.cmd [[
+    set cursorline    " enable the horizontal line
+    set cursorcolumn  " enable the vertical line
+    highlight CursorLine   cterm=NONE ctermbg=black ctermfg=NONE guibg=black guifg=NONE
+    highlight CursorColumn cterm=NONE ctermbg=black ctermfg=NONE guibg=black guifg=NONE
+  ]]
+end
+
 M.prettyfold = function ()
   local present, prettyfold = pcall(require, "pretty-fold")
 
