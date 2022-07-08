@@ -72,4 +72,10 @@ M.fugitive = {
   }
 }
 
+M.crosshairs = {
+  n = {
+    ["<leader>tc"] = { ":set cursorline! cursorcolumn!<CR>", "   开关十字光标" }
+  }
+}
+
 return M
