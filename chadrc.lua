@@ -30,6 +30,7 @@ M.plugins = {
    override = {
     ["nvim-treesitter/nvim-treesitter"] = pluginOverride.treesitter,
     ["lewis6991/gitsigns.nvim"] = pluginOverride.gitsigns,
+    ["williamboman/nvim-lsp-installer"] = pluginOverride.lsp_installer,
   },
   remove = {
     "kyazdani42/nvim-tree.lua",
