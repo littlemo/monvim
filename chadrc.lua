@@ -29,14 +29,7 @@ M.ui = {
 M.plugins = {
    override = {
     ["nvim-treesitter/nvim-treesitter"] = pluginOverride.treesitter,
-    ["lewis6991/gitsigns.nvim"] = {
-      current_line_blame = true,
-      current_line_blame_opts = {
-        delay = 200,
-        ignore_whitespace = true,
-      },
-      current_line_blame_formatter = ' <author>    <author_time:%Y-%m-%d>    <summary>   <abbrev_sha>',
-    },
+    ["lewis6991/gitsigns.nvim"] = pluginOverride.gitsigns,
   },
   remove = {
     "kyazdani42/nvim-tree.lua",
