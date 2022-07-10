@@ -19,7 +19,10 @@ M.options = {
 ---- UI -----
 
 M.ui = {
-  hl_override = {},
+  hl_override = {
+    CursorLine = { bg = "#000000" },
+    CursorColumn = { bg = "#000000" },
+  },
   changed_themes = {},
   theme_toggle = { "onedark", "one_light" },
   theme = "onedark", -- default theme

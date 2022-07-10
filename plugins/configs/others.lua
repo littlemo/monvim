@@ -12,8 +12,10 @@ M.crosshairs = function ()
   vim.cmd [[
     set cursorline    " enable the horizontal line
     set cursorcolumn  " enable the vertical line
-    highlight CursorLine   cterm=NONE ctermbg=black ctermfg=NONE guibg=black guifg=NONE
-    highlight CursorColumn cterm=NONE ctermbg=black ctermfg=NONE guibg=black guifg=NONE
+
+    " 下方光标行列高亮配色设置已在 NvChad 自定义配置层面设置，此处仅留作归档记录
+    " highlight CursorLine   cterm=NONE ctermbg=black ctermfg=NONE guibg=black guifg=NONE
+    " highlight CursorColumn cterm=NONE ctermbg=black ctermfg=NONE guibg=black guifg=NONE
   ]]
 end
 
