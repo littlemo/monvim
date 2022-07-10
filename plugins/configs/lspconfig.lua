@@ -7,9 +7,7 @@ M.setup_lsp = function(attach, capabilities)
 
   -- lspservers with default config
   local servers = {
-    ["jedi_language_server"] = {
-      single_file_support = true,
-    },
+    ["jedi_language_server"] = require("custom.plugins.configs.lang.jedi_language_server"),
   }
 
   for server_name, server_opts in pairs(servers) do
