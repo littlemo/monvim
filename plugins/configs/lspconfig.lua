@@ -20,6 +20,14 @@ M.setup_lsp = function(attach, capabilities)
       settings = {},
     }
     opts = merge_tb("force", opts, server_opts)
+
+    -- 基于项目的本地配置
+    local f = loadfile(vim.fn.getcwd() .. '/.lspconfig.lua')
+    if f ~= nil then
+      local local_cfg = f()
+      opts = merge_tb("force", opts, local_cfg)
+    end
+
     lspconfig[server_name].setup(opts)
   end
 end

@@ -1,4 +1,4 @@
-return {
+M = {
   flags = {
     allow_incremental_sync = true,
   },
@@ -47,3 +47,5 @@ return {
     },
   },
 }
+
+return M
