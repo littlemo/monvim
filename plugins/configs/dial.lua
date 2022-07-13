@@ -13,8 +13,14 @@ local dial_map = require("dial.map")
 
 local group = {
   default = {
+    augend.integer.alias.decimal_int,
+    augend.integer.alias.hex,
+    augend.integer.alias.octal,
+    augend.integer.alias.binary,
+    augend.constant.alias.alpha,
+    augend.constant.alias.Alpha,
     augend.date.alias["%Y-%m-%d"],
-    augend.date.alias["%H:%M:%S"],
+    augend.semver.alias.semver,
 
     -- https://github.com/monaqa/dial.nvim#constant
     augend.constant.new{ elements = {"true", "false"}, word = true, cyclic = true, },
