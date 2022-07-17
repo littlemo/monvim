@@ -78,4 +78,15 @@ M.crosshairs = {
   }
 }
 
+M.lspconfig = {
+  v = {
+    ["<leader>fm"] = {
+      function()
+        vim.lsp.buf.range_formatting()
+      end,
+      "   lsp range formatting",
+    },
+  }
+}
+
 return M

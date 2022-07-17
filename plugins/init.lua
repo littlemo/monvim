@@ -58,4 +58,12 @@ return {
   ["tpope/vim-fugitive"] = {  -- Git 集成
     cmd = "Git",
   },
+
+  -- 格式化&语法检查
+  ["jose-elias-alvarez/null-ls.nvim"] = {
+    after = "nvim-lspconfig",
+    config = function()
+      require("custom.plugins.configs.null-ls")
+    end,
+ }
 }
