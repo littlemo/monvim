@@ -28,6 +28,15 @@ local sources = {
     extra_args = {
       "--max-line-length", "120",
     },
+    diagnostics_postprocess = function(diagnostic)
+      -- 自定义 pylint 的输出样式，追加 symbol 信息
+      diagnostic.message = string.format(
+        "[%s]<%s> %s (%s)",
+        diagnostic.source,
+        diagnostic.code,
+        diagnostic.message,
+        diagnostic.symbol)
+    end,
   }),
   -- b.diagnostics.vulture.with({
   --   extra_args = {"--min-confidence", "65"},
