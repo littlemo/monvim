@@ -24,15 +24,20 @@ local sources = {
   -- python
   -- b.diagnostics.flake8,
   -- b.diagnostics.pydocstyle,
-  -- b.diagnostics.pylint,
+  b.diagnostics.pylint.with({
+    extra_args = {
+      "--max-line-length", "120",
+    },
+  }),
   -- b.diagnostics.vulture.with({
   --   extra_args = {"--min-confidence", "65"},
   -- }),
   b.diagnostics.pylama.with({
     -- eradicate,mccabe,mypy,pycodestyle,pydocstyle,pyflakes,pylint,isort
     extra_args = {
-      "--linters", "mccabe,pycodestyle,vulture,pylint",
+      "--linters", "mccabe,pycodestyle,vulture",
       "--vulture-min-confidence", "65",
+      "--max-line-length", "120",
     },
   }),
   b.formatting.usort,
@@ -62,7 +67,7 @@ local sources = {
 local config = {
   -- debug = true,
   sources = sources,
-  diagnostics_format = "[#{c}] #{m} (#{s})",
+  diagnostics_format = "[#{s}]<#{c}> #{m}",
 }
 
 null_ls.setup(config)
