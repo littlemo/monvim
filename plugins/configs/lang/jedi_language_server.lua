@@ -13,10 +13,10 @@ M = {
       ignorePatterns = {},
     },
     diagnostics = {
-      enable = true,
-      didOpen = true,
-      didChange = true,
-      didSave = true,
+      enable = false,
+      didOpen = false,
+      didChange = false,
+      didSave = false,
     },
     hover = {
       enable = true,
