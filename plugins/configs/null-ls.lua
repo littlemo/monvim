@@ -24,6 +24,7 @@ local sources = {
   -- python
   -- b.diagnostics.flake8,
   -- b.diagnostics.pydocstyle,
+  b.diagnostics.mypy,
   b.diagnostics.pylint.with({
     extra_args = {
       "--max-line-length", "120",
