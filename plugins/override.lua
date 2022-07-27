@@ -43,8 +43,14 @@ M.mason = {
 
     -- python stuff
     "jedi-language-server",
+    "mypy",
+    "pylint",
     "black",
     "isort",
+
+    -- shell stuff
+    "shellcheck",
+    "shfmt",
   },
 }
 
