@@ -32,9 +32,11 @@ M.general = {
     ["yP"] = { ":let @+=expand(\"%:p\")<CR>:echo '✋ 复制绝对路径完成！'<CR>", "   yank absolute path" },
   },
   i = {
+    ["<C-a>"] = { "<Home>", "論 beginning of line" },
     ["<C-f>"] = { "<Right>", "  forward character" },
     ["<C-b>"] = { "<Left>", "  backward character" },
-    ["<C-a>"] = { "<ESC>^i", "論 beginning of line" },
+    ["<C-n>"] = { "<Down>", " move down" },
+    ["<C-p>"] = { "<Up>", " move up" },
   },
   x = {
     ["<"] = { "<gv", "   左缩进" },
