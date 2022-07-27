@@ -71,5 +71,8 @@ return {
     config = function()
       require("custom.plugins.configs.null-ls")
     end,
- }
+  },
+  ["godlygeek/tabular"] = {  -- 文本对齐
+    cmd = "Tabularize",
+  },
 }
