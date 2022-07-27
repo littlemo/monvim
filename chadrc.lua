@@ -33,7 +33,7 @@ M.plugins = {
    override = {
     ["nvim-treesitter/nvim-treesitter"] = pluginOverride.treesitter,
     ["lewis6991/gitsigns.nvim"] = pluginOverride.gitsigns,
-    ["williamboman/nvim-lsp-installer"] = pluginOverride.lsp_installer,
+    ["williamboman/mason.nvim"] = pluginOverride.mason,
   },
   remove = {
     "kyazdani42/nvim-tree.lua",
@@ -41,9 +41,6 @@ M.plugins = {
   },
 
   options = {
-    lspconfig = {
-      setup_lspconf = "custom.plugins.configs.lspconfig", -- path of lspconfig file
-    },
     statusline = {
       separator_style = "default", -- default/round/slant/block/arrow
     },

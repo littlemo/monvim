@@ -2,6 +2,9 @@ local M = {}
 
 local merge_tb = vim.tbl_deep_extend
 
+local on_attach = require("plugins.configs.lspconfig").on_attach
+local on_capabilities = require("plugins.configs.lspconfig").capabilities
+
 M.setup_lsp = function(attach, capabilities)
   local lspconfig = require("lspconfig")
 
@@ -32,4 +35,4 @@ M.setup_lsp = function(attach, capabilities)
   end
 end
 
-return M
+M.setup_lsp(on_attach, on_capabilities)

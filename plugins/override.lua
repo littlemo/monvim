@@ -35,10 +35,16 @@ M.gitsigns = {
   current_line_blame_formatter = '    <author>   <author_time:%Y-%m-%d>   <summary>  <abbrev_sha>',
 }
 
-M.lsp_installer = {
+M.mason = {
   ensure_installed = {
-    "lua",
-    "jedi_language_server",
+    -- lua stuff
+    "lua-language-server" ,
+    "stylua",
+
+    -- python stuff
+    "jedi-language-server",
+    "black",
+    "isort",
   },
 }
 

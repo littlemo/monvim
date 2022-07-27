@@ -75,4 +75,12 @@ return {
   ["godlygeek/tabular"] = {  -- 文本对齐
     cmd = "Tabularize",
   },
+
+  -- lsp stuff
+  ["neovim/nvim-lspconfig"] = {
+    config = function()
+      require("plugins.configs.lspconfig")
+      require("custom.plugins.configs.lspconfig")
+    end,
+  },
 }
