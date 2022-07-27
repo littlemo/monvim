@@ -37,6 +37,8 @@ M.general = {
     ["<C-b>"] = { "<Left>", "  backward character" },
     ["<C-n>"] = { "<Down>", " move down" },
     ["<C-p>"] = { "<Up>", " move up" },
+    ["<C-j>"] = { "<C-n>", " Find next match" },
+    ["<C-k>"] = { "<C-p>", " Find previous match" },
   },
   x = {
     ["<"] = { "<gv", "   左缩进" },
