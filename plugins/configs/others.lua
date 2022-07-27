@@ -55,7 +55,16 @@ M.prettyfold = function ()
   }
 
   prettyfold.setup(options)
-  require('pretty-fold.preview').setup({
+end
+
+M.foldpreview = function ()
+  local present, foldpreview = pcall(require, "fold-preview")
+
+  if not present then
+    return
+  end
+
+  foldpreview.setup({
     border = 'rounded',
   })
 end

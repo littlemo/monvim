@@ -40,11 +40,17 @@ return {
       require("custom.plugins.configs.others").cursorword()
     end
   },
-  ["anuvyklack/pretty-fold.nvim"] = {  -- 代码折叠预览
-    requires = 'anuvyklack/nvim-keymap-amend', -- only for preview
+  ["anuvyklack/pretty-fold.nvim"] = {  -- 代码折叠
     event = 'BufRead',
     config = function ()
       require("custom.plugins.configs.others").prettyfold()
+    end,
+  },
+  ["anuvyklack/fold-preview.nvim"] = {  -- 折叠预览
+    requires = 'anuvyklack/keymap-amend.nvim',
+    event = 'BufRead',
+    config = function ()
+      require("custom.plugins.configs.others").foldpreview()
     end,
   },
   ["monaqa/dial.nvim"] = {  -- 光标词加减增强
