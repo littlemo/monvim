@@ -93,4 +93,17 @@ M.lspconfig = {
   }
 }
 
+M.neotest = {
+  n = {
+    ["<leader>rt"] = { ":lua require('neotest').run.run()<CR>", "ﭧ   Run the nearest test" },
+    ["<leader>rT"] = { ":lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "ﭧ   Run the current file" },
+    ["<leader>ra"] = { ":lua require('neotest').run.attach()<CR>", "ﭧ   Attach to a running process" },
+
+    ["<leader>ot"] = { ":lua require('neotest').output.open()<CR>", "   Open the output of a test result" },
+    ["<leader>ott"] = { ":lua require('neotest').output.open({ enter = true })<CR>", "   Open the output of a test result and Enter" },
+
+    ["<leader>ts"] = { ":lua require('neotest').summary.toggle()<CR>", "פּ   Toggle test summary window" },
+  },
+}
+
 return M

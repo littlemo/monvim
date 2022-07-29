@@ -83,4 +83,17 @@ return {
       require("custom.plugins.configs.lspconfig")
     end,
   },
+
+  -- test stuff
+  ["nvim-neotest/neotest"] = {
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-neotest/neotest-python",
+    },
+    config = function()
+      require("custom.plugins.configs.neotest")
+    end,
+  }
 }
