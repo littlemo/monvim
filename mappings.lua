@@ -66,19 +66,19 @@ M.asterisk = {
 
 M.gitsigns = {
   n = {
-    ["<leader>tb"] = { ":Gitsigns toggle_current_line_blame<CR>", "   开关当前行 blame 显示" }
+    ["<leader>tb"] = { ":Gitsigns toggle_current_line_blame<CR>", "   Toggle current line blame" }
   }
 }
 
 M.fugitive = {
   n = {
-    ["<leader>gb"] = { ":Git blame<CR>", "   全文 blame 显示" }
+    ["<leader>gb"] = { ":Git blame<CR>", "   File blame" }
   }
 }
 
 M.crosshairs = {
   n = {
-    ["<leader>tc"] = { ":set cursorline! cursorcolumn!<CR>", "   开关十字光标" }
+    ["<leader>tc"] = { ":set cursorline! cursorcolumn!<CR>", "   Toggle crosshairs" }
   }
 }
 
