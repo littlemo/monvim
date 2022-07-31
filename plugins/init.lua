@@ -95,5 +95,11 @@ return {
     config = function()
       require("custom.plugins.configs.neotest")
     end,
-  }
+  },
+  ["andythigpen/nvim-coverage"] = {
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("custom.plugins.configs.coverage")
+    end,
+  },
 }

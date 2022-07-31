@@ -10,7 +10,7 @@ local python_adapter_cfg = {
 
 	-- Command line arguments for runner
 	-- Can also be a function to return dynamic values
-	args = { "--log-level", "DEBUG" },
+	args = { "--log-level", "DEBUG", "--cov", "--cov-report=html" },
 
 	-- Runner to use. Will use pytest if available by default.
 	-- Can be a function to return dynamic value.
