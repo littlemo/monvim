@@ -101,6 +101,7 @@ M.neotest = {
 
     ["<C-p><C-o>"] = { ":lua require('neotest').output.open()<CR>", "   Open test result output" },
     ["<C-p><C-o><C-o>"] = { ":lua require('neotest').output.open({ enter = true })<CR>", "   Open test result output & Enter" },
+    ["<C-p>oo"] = { ":lua require('neotest').output.open({ short = true, enter = true })<CR>", "   Open test shortened output & Enter" },
 
     ["<C-p><C-s>"] = { ":lua require('neotest').summary.toggle()<CR>", "פּ   Toggle test summary window" },
   },
