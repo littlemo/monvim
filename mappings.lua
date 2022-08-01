@@ -108,9 +108,9 @@ M.neotest = {
 
 M.coverage = {
   n = {
-    ["<leader>cs"] = { ":lua require('coverage').summary()<CR>", "   coverage summary report" },
-    ["<leader>cl"] = { ":lua require('coverage').load()<CR>"   , "勒  Loads a coverage report" },
-    ["<leader>ct"] = { ":lua require('coverage').toggle()<CR>" , "   Toggles coverage signs" },
+    ["<leader>cs"] = { ":CoverageSummary<CR>", "   coverage summary report" },
+    ["<leader>cl"] = { ":CoverageLoad<CR>"   , "勒  Loads a coverage report" },
+    ["<leader>ct"] = { ":CoverageToggle<CR>" , "   Toggles coverage signs" },
   },
 }
 
