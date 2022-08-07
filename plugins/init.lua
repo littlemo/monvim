@@ -121,4 +121,35 @@ return {
 			require("custom.plugins.configs.coverage")
 		end,
 	},
+
+	-- debug stuff
+	["mfussenegger/nvim-dap"] = {
+		module = "dap",
+		config = function()
+			require("custom.plugins.configs.dap").dap()
+		end,
+	},
+	["rcarriga/nvim-dap-ui"] = {
+		requires = "mfussenegger/nvim-dap",
+		event = "BufRead",
+		config = function()
+			require("custom.plugins.configs.dap").dapui()
+		end,
+	},
+	["theHamsta/nvim-dap-virtual-text"] = {
+		requires = {
+			"mfussenegger/nvim-dap",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		module = "nvim-dap-virtual-text",
+		config = function()
+			require("custom.plugins.configs.dap").virtual_text()
+		end,
+	},
+	["mfussenegger/nvim-dap-python"] = {
+		module = "dap-python",
+		config = function()
+			require("dap-python").setup()
+		end,
+	},
 }

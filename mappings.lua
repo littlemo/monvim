@@ -115,4 +115,24 @@ M.coverage = {
   },
 }
 
+M.dap = {
+  n = {
+    ["<leader>db"] = { ":lua require('dap').toggle_breakpoint()<CR>", "toggle breakpoint" },
+    ["<leader>dB"] = { ":lua require('dap').set_breakpoint(vim.fn.input '[Condition] > ')<CR>", "set condition breakpoint" },
+    ["<leader>dr"] = { ":lua require('dap').repl.open()<CR>", "open repl" },
+    ["<leader>dl"] = { ":lua require('dap').run_last()<CR>", "run last" },
+    ["<leader>dq"] = { ":lua require('dap').terminate()<CR>", "terminate" },
+    ["<leader>dt"] = { ":lua require('dap-python').test_method()<CR>", "debug test method" },
+    ["<leader>dT"] = { ":lua require('dap-python').test_class()<CR>", "debug test class" },
+    ["<M-c>"] = { ":lua require('dap').continue()<CR>", "continue" },
+    ["<M-s>"] = { ":lua require('dap').step_into()<CR>", "step into" },
+    ["<M-n>"] = { ":lua require('dap').step_over()<CR>", "step over" },
+    ["<M-r>"] = { ":lua require('dap').step_out()<CR>", "step out" },
+    ["<M-k>"] = { ":lua require('dapui').eval()<CR>", "eval" },
+  },
+  v = {
+    ["<leader>ds"] = { "<ESC>:lua require('dap-python').debug_selection()<CR>", "debug selection" },
+  },
+}
+
 return M
