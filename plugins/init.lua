@@ -94,9 +94,7 @@ return {
 
 	-- test stuff
 	["nvim-neotest/neotest"] = { -- 单测框架
-		setup = function()
-			require("core.lazy_load").on_file_open("neotest")
-		end,
+		module = "neotest",
 		requires = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
@@ -108,14 +106,10 @@ return {
 		end,
 	},
 	["antoinemadec/FixCursorHold.nvim"] = {
-		setup = function()
-			require("core.lazy_load").on_file_open("FixCursorHold.nvim")
-		end,
+		module = "FixCursorHold.nvim",
 	},
 	["nvim-neotest/neotest-python"] = {
-		setup = function()
-			require("core.lazy_load").on_file_open("neotest-python")
-		end,
+		module = "neotest-python",
 	},
 	["andythigpen/nvim-coverage"] = { -- 单测覆盖报告展示
 		cmd = { "CoverageLoad", "CoverageToggle", "CoverageSummary" },
