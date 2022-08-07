@@ -1,5 +1,8 @@
 return {
 	-- 功能增强
+	["folke/which-key.nvim"] = {
+		disable = false,
+	},
 	["tpope/vim-surround"] = { -- 围绕选择
 		event = "BufRead",
 	},
