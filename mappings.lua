@@ -95,15 +95,15 @@ M.lspconfig = {
 
 M.neotest = {
   n = {
-    ["<C-p><C-t>"] = { ":lua require('neotest').run.run()<CR>", "ﭧ   Run the nearest test" },
-    ["<C-p>t"] = { ":lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "ﭧ   Run the current file" },
-    ["<C-p><C-a>"] = { ":lua require('neotest').run.attach()<CR>", "ﭧ   Attach to a running process" },
+    ["<leader>dt"] = { ":lua require('neotest').run.run()<CR>", "ﭧ   Run the nearest test" },
+    ["<leader>dT"] = { ":lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "ﭧ   Run the current file" },
+    ["<leader>dA"] = { ":lua require('neotest').run.attach()<CR>", "ﭧ   Attach to a running process" },
 
-    ["<C-p><C-o>"] = { ":lua require('neotest').output.open()<CR>", "   Open test result output" },
-    ["<C-p><C-o><C-o>"] = { ":lua require('neotest').output.open({ enter = true })<CR>", "   Open test result output & Enter" },
-    ["<C-p>oo"] = { ":lua require('neotest').output.open({ short = true, enter = true })<CR>", "   Open test shortened output & Enter" },
+    ["<leader>do"] = { ":lua require('neotest').output.open()<CR>", "   Open test result output" },
+    ["<leader>doo"] = { ":lua require('neotest').output.open({ enter = true })<CR>", "   Open test result output & Enter" },
+    ["<leader>dos"] = { ":lua require('neotest').output.open({ short = true, enter = true })<CR>", "   Open test shortened output & Enter" },
 
-    ["<C-p><C-s>"] = { ":lua require('neotest').summary.toggle()<CR>", "פּ   Toggle test summary window" },
+    ["<leader>ds"] = { ":lua require('neotest').summary.toggle()<CR>", "פּ   Toggle test summary window" },
   },
 }
 
@@ -122,13 +122,16 @@ M.dap = {
     ["<leader>dr"] = { ":lua require('dap').repl.open()<CR>", "open repl" },
     ["<leader>dl"] = { ":lua require('dap').run_last()<CR>", "run last" },
     ["<leader>dq"] = { ":lua require('dap').terminate()<CR>", "terminate" },
-    ["<leader>dt"] = { ":lua require('dap-python').test_method()<CR>", "debug test method" },
-    ["<leader>dT"] = { ":lua require('dap-python').test_class()<CR>", "debug test class" },
+
     ["<M-c>"] = { ":lua require('dap').continue()<CR>", "continue" },
     ["<M-s>"] = { ":lua require('dap').step_into()<CR>", "step into" },
     ["<M-n>"] = { ":lua require('dap').step_over()<CR>", "step over" },
     ["<M-r>"] = { ":lua require('dap').step_out()<CR>", "step out" },
+
     ["<M-k>"] = { ":lua require('dapui').eval()<CR>", "eval" },
+
+    ["<leader>dm"] = { ":lua require('dap-python').test_method()<CR>", "debug test method" },
+    ["<leader>dc"] = { ":lua require('dap-python').test_class()<CR>", "debug test class" },
   },
   v = {
     ["<leader>ds"] = { "<ESC>:lua require('dap-python').debug_selection()<CR>", "debug selection" },
